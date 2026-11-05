@@ -1,342 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badaoui - Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
-            background-color: #ffffff;
-            color: #4B4843;
-            min-height: 100vh;
-            min-height: 100dvh;
-            overflow-x: hidden;
-            position: relative;
-        }
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Portfolio de Walid Badaoui : réseaux, administration systèmes, cybersécurité, projets techniques et contact."><meta name="theme-color" content="#fdfbf5"><title>Walid Badaoui — Portfolio technique</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="onepage.css"><script src="onepage.js" defer></script></head><body><a class="skip-link" href="#accueil">Aller au contenu</a>
+<div class="ambient-glow" aria-hidden="true"><span></span><span></span></div>
+<header class="site-header" id="top">
+  <div class="site-header-inner">
+    <a class="brand" href="#accueil" aria-label="Accueil — Portfolio Badaoui">BADAOUI<span>.</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+       <a href="#accueil" class="active" aria-current="page">Accueil</a>
+       <a href="#apropos">À propos</a>
+       <a href="#competences">Compétences</a>
+       <a href="#projets">Projets</a>
+       <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="mailto:walid.badaoui@etu.unice.fr">Échangeons <span aria-hidden="true">↗</span></a>
+  </div>
+</header><main id="main-content"><section id="accueil" class="onepage-section onepage-section--accueil" aria-label="Accueil">
+<div class="section-shell">
 
-        /* HEADER */
-        header {
-            width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 32px 60px 0 60px;
-            background: transparent;
-            position: relative;
-            z-index: 10;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 2.2rem;
-            color: #4B4843;
-            letter-spacing: 2px;
-            line-height: 1.1;
-        }
-        .logo span {
-            color: #EBCB3C;
-            font-size: 2.4rem;
-            font-family: inherit;
-        }
-
-        nav.main-nav {
-            display: flex;
-            gap: 2.5rem;
-            flex: 1;
-            justify-content: center;
-            align-items: center;
-        }
-        nav.main-nav a {
-            color: #4B4843;
-            font-size: 1.18rem;
-            font-weight: 500;
-            text-decoration: none;
-            letter-spacing: 1px;
-            transition: color .2s;
-            font-family: 'Montserrat', sans-serif;
-        }
-        nav.main-nav a:hover, nav.main-nav a:focus {
-            color: #EBCB3C;
-            outline: none;
-        }
-        nav.main-nav a:focus-visible {
-            outline: 2px solid #EBCB3C;
-            outline-offset: 2px;
-        }
-        nav.main-nav a.active-nav { color: #EBCB3C; font-weight:800; }
-
-        .socials {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        .socials a:focus-visible img {
-            outline: 2px solid #EBCB3C;
-            outline-offset: 2px;
-        }
-        .socials img {
-            width: 24px;
-            height: 24px;
-            display: block;
-            filter: grayscale(40%);
-            opacity: 0.85;
-            transition: filter 0.2s, opacity 0.2s, transform 0.2s;
-        }
-        .socials a:hover img,
-        .socials a:focus img {
-            filter: none;
-            opacity: 1;
-            transform: scale(1.12);
-        }
-
-        /* FOND FLUIDE JAUNE ET BLANC */
-        .shapes {
-            position: fixed;
-            z-index: 0;
-            width: 100vw; height: 100vh;
-            top: 0; left: 0;
-            pointer-events: none;
-            overflow: hidden;
-            background: #ffffff;
-        }
-        .blob1 {
-            position: absolute;
-            left: -10vw; top: -10vh;
-            width: 50vw; height: 50vw;
-            background: rgba(235, 203, 60, 0.3);
-            border-radius: 50%;
-            filter: blur(120px);
-        }
-        .blob2 {
-            position: absolute;
-            right: -10vw; bottom: -10vh;
-            width: 60vw; height: 60vw;
-            background: rgba(235, 203, 60, 0.2);
-            border-radius: 50%;
-            filter: blur(140px);
-        }
-        .blob3 {
-            position: absolute;
-            left: 30vw; top: 40vh;
-            width: 40vw; height: 40vw;
-            background: rgba(237, 230, 219, 0.4);
-            border-radius: 50%;
-            filter: blur(100px);
-        }
-
-        /* MAIN */
-        main {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 10px;
-            min-height: calc(100vh - 90px);
-            position: relative;
-            z-index: 2;
-        }
-
-        .intro {
-            flex: 1 1 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-left: 40px;
-            z-index: 2;
-        }
-        
-        .salut {
-            font-size: 1.7rem;
-            letter-spacing: 2px;
-            color: #4B4843;
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 10px;
-            margin-top: 40px;
-            font-weight: 700;
-            position: relative;
-        }
-        .salut-underscore {
-            display: inline-block;
-            width: 38px;
-            height: 5px;
-            background: #EBCB3C;
-            border-radius: 2px;
-            margin-left: 14px;
-            margin-bottom: 8px;
-        }
-        h1 {
-            font-size: 2.9rem;
-            margin: 0 0 12px 0;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            letter-spacing: 1px;
-            line-height: 1.1;
-        }
-        .je-suis {
-            color: #4B4843;
-            font-weight: 900;
-            margin-right: 9px;
-        }
-        .prenom {
-            color: #EBCB3C;
-            font-weight: 900;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 1.5px;
-            font-size: 2.9rem;
-        }
-        
-        /* STYLE DU TEXTE DE PRÉSENTATION */
-        .desc {
-            font-size: 1.15rem;
-            color: #4B4843;
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin-bottom: 32px;
-            margin-top: 12px;
-            max-width: 540px;
-            background: transparent;
-            padding: 0;
-        }
-        .desc strong {
-            color: #333;
-            font-weight: 500;
-        }
-
-        .cta {
-            display: flex;
-            gap: 1.1rem;
-            margin-top: 18px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            background: #4B4843;
-            color: #fff;
-            border: none;
-            outline: none;
-            padding: 10px 22px;
-            font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            border-radius: 7px;
-            box-shadow: 0 5px 20px rgba(75,72,67,0.12);
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            text-decoration: none;
-            letter-spacing: 0.8px;
-        }
-        .btn:focus-visible {
-            outline: 2px solid #EBCB3C;
-            outline-offset: 2px;
-        }
-        .btn:hover, .btn:focus {
-            background: #EBCB3C;
-            color: #4B4843;
-            transform: translateY(-2px) scale(1.04);
-            box-shadow: 0 12px 32px rgba(75,72,67,0.17);
-        }
-        .btn.alt {
-            background: #EBCB3C;
-            color: #4B4843;
-        }
-        .btn.alt:hover, .btn.alt:focus {
-            background: #4B4843;
-            color: #fff;
-        }
-        
-        /* PHOTO À DROITE */
-        .photo-hero {
-            flex: 0 0 380px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            position: relative;
-            z-index: 2;
-        }
-        .photo-hero img {
-            width: 340px;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 30px 30px 100px 100px/40px 40px 110px 110px;
-            box-shadow: 0 12px 40px rgba(75,72,67,0.22);
-            background: #fff;
-            border: 5px solid #EBCB3C;
-            transition: transform 0.35s cubic-bezier(.25,.8,.25,1), box-shadow 0.35s;
-        }
-        .photo-hero img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 18px 60px 0 rgba(75,72,67,0.28);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 1100px) {
-            header { padding: 38px 20px 0 20px; }
-            .hero { flex-direction: column; align-items: center; padding-top: 20px; min-height: 0; }
-            .intro { margin-left: 0; align-items: center; text-align: center; }
-            .desc { max-width: 90vw; }
-            .photo-hero { margin-top: 36px; }
-        }
-        @media (max-width: 700px) {
-            header { flex-direction: column; gap: 16px; padding: 20px 10px;}
-            nav.main-nav { flex-wrap: wrap; }
-            .hero { min-height: 80vh; }
-            h1 { font-size: 2.2rem; }
-            .socials img { width: 22px; height: 22px; }
-            .photo-hero img { width: 220px; height: 240px; }
-        }
-    </style>
-    <meta name="description" content="Portfolio de Walid Badaoui : projets en cybersécurité, réseaux, systèmes et développement. Découvrez mes réalisations techniques et contactez-moi.">
-    <meta name="theme-color" content="#fffdf8">
-    <link rel="stylesheet" href="polish.css">
-</head>
-<body>
-    <div class="shapes" aria-hidden="true">
-        <div class="blob1"></div>
-        <div class="blob2"></div>
-        <div class="blob3"></div>
-    </div>
-
-    <header>
-        <a class="logo" href="index.html" aria-label="Retour à l’accueil">BADAOUI<span>.</span></a>
-
-        <nav class="main-nav" aria-label="Menu principal">
-            <a href="#accueil" class="active-nav" aria-current="page">Accueil</a>
-            <a href="apropos.html#apropos">À Propos</a>
-            <a href="competences.html">Compétences</a>
-            <a href="projets.html">Projets</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <div class="socials" aria-label="Réseaux sociaux">
-            <a href="https://github.com/WaridoSann" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
-            </a>
-            
-        </div>
-    </header>
-
-    <main id="accueil">
         <section class="hero" aria-labelledby="titre-accueil">
             <div class="intro">
                 <p class="salut" id="titre-accueil">Bienvenue sur mon portfolio<span class="salut-underscore"></span></p>
@@ -352,8 +31,8 @@
 
                 <nav class="cta" aria-label="Appels à l'action">
                     <a class="btn" href="CV_BADAOUI_WALID.pdf" download>Télécharger mon CV</a>
-                    <a class="btn alt" href="mailto:walid.badaoui@etu.unice.fr">Me contacter</a>
-                    <a class="btn" href="projets.html">Découvrir mes projets</a>
+                    <a class="btn alt" href="#contact">Me contacter</a>
+                    <a class="btn" href="#projets">Découvrir mes projets</a>
                 </nav>
             </div>
 
@@ -361,10 +40,592 @@
                 <img src="img/photo.JPG" alt="Photo professionnelle de Walid Badaoui" />
             </div>
         </section>
-    </main>
-<section class="portfolio-home-highlights" aria-labelledby="portfolio-realisations"><div class="portfolio-section-kicker">À découvrir</div><h2 id="portfolio-realisations">Des projets concrets, de la conception au rapport technique</h2><div class="portfolio-highlight-grid"><article class="portfolio-highlight-card"><span class="portfolio-card-number">01 · Sécurité</span><h3>Audit de sécurité en laboratoire</h3><p>Reconnaissance, exploitation, pivot réseau et documentation d'un scénario de pentest.</p><a href="projets.html">Explorer le projet →</a></article><article class="portfolio-highlight-card"><span class="portfolio-card-number">02 · Réseaux</span><h3>Architecture d'entreprise sécurisée</h3><p>Segmentation, routage, haute disponibilité et défense en profondeur sur équipements Cisco.</p><a href="projets.html">Voir les réalisations →</a></article><article class="portfolio-highlight-card"><span class="portfolio-card-number">03 · Développement</span><h3>Application Android et API REST</h3><p>Scanner réseau, application mobile Java et échange de données avec un back-end PHP.</p><a href="projets.html">Consulter les projets →</a></article></div></section>
+    
+<section class="portfolio-home-highlights" aria-labelledby="portfolio-realisations"><div class="portfolio-section-kicker">À découvrir</div><h2 id="portfolio-realisations">Des projets concrets, de la conception au rapport technique</h2><div class="portfolio-highlight-grid"><article class="portfolio-highlight-card"><span class="portfolio-card-number">01 · Sécurité</span><h3>Audit de sécurité en laboratoire</h3><p>Reconnaissance, exploitation, pivot réseau et documentation d'un scénario de pentest.</p><a href="#projets">Explorer le projet →</a></article><article class="portfolio-highlight-card"><span class="portfolio-card-number">02 · Réseaux</span><h3>Architecture d'entreprise sécurisée</h3><p>Segmentation, routage, haute disponibilité et défense en profondeur sur équipements Cisco.</p><a href="#projets">Voir les réalisations →</a></article><article class="portfolio-highlight-card"><span class="portfolio-card-number">03 · Développement</span><h3>Application Android et API REST</h3><p>Scanner réseau, application mobile Java et échange de données avec un back-end PHP.</p><a href="#projets">Consulter les projets →</a></article></div></section>
+</div>
+</section>
+
+<section id="apropos" class="onepage-section onepage-section--apropos" aria-label="À propos">
+<div class="section-shell"><div class="section-kicker"><span class="kicker-line"></span>01 / Ma démarche</div>
+
+        <h2 class="page-title">À Propos de <span>Moi</span></h2>
+
+        <p class="editorial-text">
+            Formé aux <strong>réseaux et télécommunications</strong>, avec une spécialisation en cybersécurité, je développe mes compétences à travers l'administration système, la conception d'infrastructures et la pratique technique en laboratoire. Mon objectif professionnel est de m'orienter vers les métiers du <strong>pentest</strong>.
+        </p>
+        <p class="editorial-text">
+            La sécurité offensive exige de comprendre les systèmes avant de les tester : réseaux, protocoles, configurations et applications. J'apprécie particulièrement les démarches méthodiques qui relient l'observation technique à des mesures de protection concrètes.
+        </p>
+
+        <div class="highlight-quote">
+            "Pour être un excellent Pentester, l'intuition ne suffit pas. Il faut une compréhension intime et profonde des systèmes que l'on attaque."
+        </div>
+
+        <p class="editorial-text">
+            Mes expériences personnelles et professionnelles m'ont appris la régularité, la gestion des priorités et le travail en équipe. J'applique ces méthodes à mes projets techniques, que je prends soin de documenter et de faire évoluer au fil de mes apprentissages.
+        </p>
+
+        <h2 class="section-title">Mon Parcours</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Formation technique</div>
+                <div class="timeline-content">
+                    <h3>BUT Réseaux & Télécommunications</h3>
+                    <p>Développement de bases solides en administration système (Linux), conception d'architectures réseaux, et initiation poussée à la cybersécurité (défensive et offensive).</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Pratique personnelle</div>
+                <div class="timeline-content">
+                    <h3>Auto-formation & Pratique Offensive</h3>
+                    <p>Pratique régulière sur des plateformes comme Hack The Box. Apprentissage de l'énumération, de l'exploitation de failles web et de l'escalade de privilèges sous Linux.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Perspective professionnelle</div>
+                <div class="timeline-content">
+                    <h3>École d'Ingénieur en Cybersécurité</h3>
+                    <p>Approfondir mes connaissances en cybersécurité, contribuer à des projets concrets et évoluer vers des missions de sécurité offensive.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Mes Domaines d'Action</h2>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <h3>Infrastructures & Réseaux</h3>
+                <p>Conception et déploiement d'architectures d'entreprise. Maîtrise des environnements Linux, VMware, et de leur sécurisation.</p>
+            </div>
+            <div class="skill-box">
+                <h3>Sécurité Offensive Pentest</h3>
+                <p>Recherche active de vulnérabilités, tests d'intrusion Web, utilisation d'outils d'énumération, d'attaque et exploitation système.</p>
+            </div>
+            <div class="skill-box">
+                <h3>Développement & Scripting</h3>
+                <p>Création d'outils et automatisation en Python et Bash. Connaissances solides en développement Web (PHP, JS) et programmation (C, Java).</p>
+            </div>
+            <div class="skill-box">
+                <h3>Veille & Méthodologie</h3>
+                <p>Étude constante dans mon secteur d'apprentissage, analyse de documentations techniques et maintien d'une base de connaissances rigoureuse.</p>
+            </div>
+        </div>
+
+    
+</div>
+</section>
+
+<section id="competences" class="onepage-section onepage-section--competences" aria-label="Compétences">
+<div class="section-shell"><div class="section-kicker"><span class="kicker-line"></span>02 / Compétences</div>
 
 
-<footer class="portfolio-footer"><div class="portfolio-footer-inner"><div><strong>BADAOUI<span style="color:#c4a02e">.</span></strong><p>Portfolio technique · Réseaux, systèmes & cybersécurité</p></div><nav aria-label="Liens de pied de page"><a href="index.html">Accueil</a><a href="projets.html">Mes projets</a><a href="contact.html">Contact</a><a href="https://github.com/WaridoSann" target="_blank" rel="noopener noreferrer">GitHub</a></nav></div></footer>
-</body>
-</html>
+  <section class="skills-hero">
+    <h2><span>Compétences</span> & Stack Technique</h2>
+    <p>
+      Développement, infrastructures réseaux, cybersécurité offensive et état d'esprit. 
+      Voici les outils et les méthodes qui me permettent de mener mes projets à bien.
+      Cliquez sur une carte pour explorer les détails.
+    </p>
+  </section>
+
+  <section class="skills-filters" aria-label="Filtres compétences">
+    <button class="skill-filter-btn active" data-filter="all">Tout</button>
+    <button class="skill-filter-btn" data-filter="dev">Développement</button>
+    <button class="skill-filter-btn" data-filter="reseau">Réseaux & Systèmes</button>
+    <button class="skill-filter-btn" data-filter="pentest">Pentest / Cyber</button>
+    <button class="skill-filter-btn" data-filter="soft">Soft skills</button>
+  </section>
+
+  <section class="skills-section">
+    <h2 class="skills-section-title">Technique & Cybersécurité</h2>
+
+    <div class="skills-grid" id="skillsGrid">
+
+      <article class="skill-card" data-id="python" data-category="dev pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" alt="Python"></div>
+          <h3 class="skill-title">Python</h3>
+        </div>
+        <p class="skill-short">Scripts d’automatisation, outils d'exploitation pour CTF et traitement de données brutes.</p>
+        <div class="skill-tags"><span class="tag">POO</span><span class="tag">Automatisation</span><span class="tag">Scripting</span></div>
+      </article>
+
+      <article class="skill-card" data-id="java" data-category="dev" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="skill-icon" alt="Java"></div>
+          <h3 class="skill-title">Java</h3>
+        </div>
+        <p class="skill-short">Développement d'applications orientées objet, structures de données et interfaces graphiques.</p>
+        <div class="skill-tags"><span class="tag">POO</span><span class="tag">Algorithmique</span><span class="tag">Logiciel</span></div>
+      </article>
+
+      <article class="skill-card" data-id="php" data-category="dev" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="skill-icon" alt="PHP"></div>
+          <h3 class="skill-title">PHP (Back-end)</h3>
+        </div>
+        <p class="skill-short">Développement de pages dynamiques, formulaires sécurisés et logique serveur.</p>
+        <div class="skill-tags"><span class="tag">Back-end</span><span class="tag">Sessions</span><span class="tag">Sécurité Front</span></div>
+      </article>
+
+      <article class="skill-card" data-id="mysql" data-category="dev" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="skill-icon" alt="MySQL"></div>
+          <h3 class="skill-title">MySQL / MariaDB</h3>
+        </div>
+        <p class="skill-short">Conception de schémas relationnels, requêtes complexes et gestion de bases de données.</p>
+        <div class="skill-tags"><span class="tag">SQL</span><span class="tag">Modélisation</span><span class="tag">Bases de données</span></div>
+      </article>
+
+      <article class="skill-card" data-id="reseaux" data-category="reseau" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/networkx/networkx-original.svg" class="skill-icon" alt="Réseaux" style="filter: brightness(0.2);"></div>
+          <h3 class="skill-title">Configuration équipements réseaux</h3>
+        </div>
+        <p class="skill-short">Déploiement d’architectures complexes, gestion de routeurs/switchs et sécurisation des flux réseau.</p>
+        <div class="skill-tags"><span class="tag">Cisco</span><span class="tag">VLAN / Routage</span><span class="tag">Pare-feu / DMZ</span></div>
+      </article>
+
+      <article class="skill-card" data-id="linux" data-category="reseau pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="skill-icon" alt="Linux"></div>
+          <h3 class="skill-title">Administration Linux</h3>
+        </div>
+        <p class="skill-short">Gestion avancée du système, bash scripting, configuration de services et durcissement OS.</p>
+        <div class="skill-tags"><span class="tag">Debian / Kali</span><span class="tag">Bash</span><span class="tag">Permissions</span></div>
+      </article>
+
+      <article class="skill-card" data-id="recon" data-category="pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap pentest-icon">🕵️‍♂️</div>
+          <h3 class="skill-title">Reconnaissance & Footprinting</h3>
+        </div>
+        <p class="skill-short">Processus de penetration testing : information gathering, scan de ports et vulnerability assessment.</p>
+        <div class="skill-tags"><span class="tag">Nmap</span><span class="tag">OSINT</span><span class="tag">Vuln Assessment</span></div>
+      </article>
+
+      <article class="skill-card" data-id="webpentest" data-category="pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap pentest-icon">🌐</div>
+          <h3 class="skill-title">Exploitation Web</h3>
+        </div>
+        <p class="skill-short">Identification et exploitation des failles applicatives web lors d'audits ou de CTF.</p>
+        <div class="skill-tags"><span class="tag">SQLi / XSS</span><span class="tag">LFI / RFI</span><span class="tag">Burp Suite</span></div>
+      </article>
+
+      <article class="skill-card" data-id="shells" data-category="pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap pentest-icon">💀</div>
+          <h3 class="skill-title">Payloads, Shells & Cracking</h3>
+        </div>
+        <p class="skill-short">Génération de reverse shells, craquage de mots de passe et élévation de privilèges (PrivEsc).</p>
+        <div class="skill-tags"><span class="tag">Reverse Shell</span><span class="tag">Hashcat / John</span><span class="tag">PrivEsc</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="skills-section soft-section">
+    <h2 class="skills-section-title">Soft Skills & Mindset</h2>
+
+    <div class="skills-grid soft-grid">
+
+      <article class="skill-card soft-card" data-id="perseverance" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">🔥</div></div>
+          <h3 class="skill-title">Persévérance</h3>
+        </div>
+        <p class="skill-short">Face à une difficulté technique, je décompose le problème, teste mes hypothèses et documente la solution.</p>
+        <div class="skill-tags"><span class="tag">Détermination</span><span class="tag">Résolution</span></div>
+      </article>
+
+      <article class="skill-card soft-card" data-id="organisation" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">📅</div></div>
+          <h3 class="skill-title">Organisation & Priorisation</h3>
+        </div>
+        <p class="skill-short">J'organise mes tâches selon leurs priorités, avec un suivi régulier des échéances et des livrables.</p>
+        <div class="skill-tags"><span class="tag">Planification</span><span class="tag">Gestion du temps</span></div>
+      </article>
+
+      <article class="skill-card soft-card" data-id="rigueur" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">⏱️</div></div>
+          <h3 class="skill-title">Rigueur & Deadlines</h3>
+        </div>
+        <p class="skill-short">Capable de gérer une multitude de projets en parallèle tout en garantissant des rendus de haute qualité dans les temps.</p>
+        <div class="skill-tags"><span class="tag">Fiabilité</span><span class="tag">Gestion du stress</span></div>
+      </article>
+
+      <article class="skill-card soft-card" data-id="curiosite" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">🧠</div></div>
+          <h3 class="skill-title">Curiosité & Veille</h3>
+        </div>
+        <p class="skill-short">Apprentissage continu et proactif. Je me forme quotidiennement via des labs, des CTF et des articles spécialisés.</p>
+        <div class="skill-tags"><span class="tag">HackTheBox</span><span class="tag">Veille Cyber</span></div>
+      </article>
+
+      <article class="skill-card soft-card" data-id="equipe" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">🤝</div></div>
+          <h3 class="skill-title">Synergie d'Équipe</h3>
+        </div>
+        <p class="skill-short">Forgé par les très nombreux projets de groupe du BUT, je sais comment diviser, communiquer et fusionner le travail.</p>
+        <div class="skill-tags"><span class="tag">Collaboration</span><span class="tag">Git / Partage</span></div>
+      </article>
+
+    </div>
+  </section>
+
+
+</div><div id="skillsModalOverlay" class="modal-overlay" aria-hidden="true"></div>
+<div id="skillsModal" class="modal-box" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalSkillTitle">
+  <button id="closeSkillsModal" class="modal-close" aria-label="Fermer">&times;</button>
+  <div class="modal-inner">
+    <h2 id="modalSkillTitle"></h2>
+    <div id="modalSkillTags" class="modal-tags"></div>
+    <div id="modalSkillContent" class="modal-scroll"></div>
+  </div>
+</div>
+
+
+</section>
+
+<section id="projets" class="onepage-section onepage-section--projets" aria-label="Projets">
+<div class="section-shell"><div class="section-kicker"><span class="kicker-line"></span>03 / Réalisations</div>
+
+  <section class="projets-header">
+    <h2><span class="highlight">Projets</span> Réalisés</h2>
+    <p>Découvrez 13 réalisations techniques en cybersécurité, réseaux, télécoms et développement, avec des livrables consultables lorsque disponibles.</p>
+  </section>
+
+  <div class="filters" role="toolbar" aria-label="Filtres projets">
+    <button class="filter-btn active" data-filter="all">Tous</button>
+    <button class="filter-btn" data-filter="cyber">Cybersécurité</button>
+    <button class="filter-btn" data-filter="reseau">Réseaux</button>
+    <button class="filter-btn" data-filter="telecom">Télécoms</button>
+    <button class="filter-btn" data-filter="web">Web & Dev</button>
+  </div>
+
+  <section class="projects-grid" aria-live="polite">
+
+    <div class="project-card" data-id="p11" data-category="cyber" tabindex="0" role="button">
+      <img src="SAE34/sae34_image.png" class="project-image" alt="Audit de Sécurité Pentest" style="background-color: #1a1a1a;">
+      <div class="project-content">
+        <h2>Audit de sécurité (pentest Black Box)</h2>
+        <p class="project-mini">Test d'intrusion complet : exploitation CVE, pivoting réseau, injection de commandes et PrivEsc.</p>
+        <div class="project-tags-preview">
+            <span>Kill Chain</span><span>Pivoting</span><span>Metasploit</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p5" data-category="cyber" tabindex="0" role="button">
+      <img src="SAE14/photo_SAE14.jpeg" class="project-image" alt="E-réputation">
+      <div class="project-content">
+        <h2>Atelier E-réputation</h2>
+        <p class="project-mini">Prévention des comportements à risques numériques en milieu scolaire.</p>
+        <div class="project-tags-preview">
+            <span>Prévention</span><span>Pédagogie</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p1" data-category="cyber" tabindex="0" role="button">
+      <img src="SAE11/image_SAE11.jpeg" class="project-image" alt="Sensibilisation cybersécurité">
+      <div class="project-content">
+        <h2>Analyse & Sensibilisation Cyber</h2>
+        <p class="project-mini">Étude approfondie de 10 cyberattaques majeures et vulgarisation des vecteurs d'intrusion.</p>
+        <div class="project-tags-preview">
+            <span>Analyse</span><span>Vulgarisation</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="project-card" data-id="p9" data-category="web cyber" tabindex="0" role="button">
+      <img src="SAE32/sae32_image.png" class="project-image" alt="Application Android Scanner Réseau" style="background-color: #1a1a1a;">
+      <div class="project-content">
+        <h2>Application Android : scanner réseau</h2>
+        <p class="project-mini">Développement full-stack : API REST (PHP) et Application Mobile (Java) affichant les failles réseau.</p>
+        <div class="project-tags-preview">
+            <span>Android (Java)</span><span>API REST</span><span>Réseau</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p10" data-category="reseau cyber" tabindex="0" role="button">
+      <img src="SAE33/topologie_sae33.png" class="project-image" alt="Architecture Réseau Haute Disponibilité" style="background-color: #2c3e50;">
+      <div class="project-content">
+        <h2>Architecture Réseau Sécurisée</h2>
+        <p class="project-mini">Infrastructure hautement redondante grâce à HSRP et OSPF, sécurisée par design (ASA, VPN IPsec, Hardening L2).</p>
+        <div class="project-tags-preview">
+            <span>Haute Dispo</span><span>Cisco ASA</span><span>VPN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p6" data-category="telecom" tabindex="0" role="button">
+      <img src="SAE13/cable_projet.jpeg" class="project-image" alt="Câble coaxial">
+      <div class="project-content">
+        <h2>Étude Physique : Câble Coaxial</h2>
+        <p class="project-mini">Analyse des signaux, des phénomènes EM et mesures d'atténuation en laboratoire.</p>
+        <div class="project-tags-preview">
+            <span>Signaux</span><span>Mesures Labo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p4" data-category="reseau" tabindex="0" role="button">
+      <img src="SAE12/photo_SAE12.jpeg" class="project-image" alt="S’initier aux réseaux">
+      <div class="project-content">
+        <h2>Diagnostic Réseau Domestique</h2>
+        <p class="project-mini">Analyse complète des trames (Wireshark), du routage et des flux TCP d'un réseau réel.</p>
+        <div class="project-tags-preview">
+            <span>Wireshark</span><span>Traceroute</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p8" data-category="telecom" tabindex="0" role="button">
+      <img src="SAE22/sae22image.jpeg" class="project-image" alt="Télésurveillance LoRa">
+      <div class="project-content">
+        <h2>Système IoT LoRa</h2>
+        <p class="project-mini">Étude de portée, calcul de bande passante et de consommation pour capteurs autonomes.</p>
+        <div class="project-tags-preview">
+            <span>IoT</span><span>Basse conso</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p2" data-category="web telecom" tabindex="0" role="button">
+      <img src="SAE15/photo_SAE15.webp" class="project-image" alt="Système photo avionique">
+      <div class="project-content">
+        <h2>Système Embarqué Avionique</h2>
+        <p class="project-mini">Projet Thales : Conception d'un système de capture photo automatisé avec gestion des rôles.</p>
+        <div class="project-tags-preview">
+            <span>Raspberry Pi</span><span>Full-Stack</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p7" data-category="reseau cyber" tabindex="0" role="button">
+      <img src="SAE21/sae21image.jpg" class="project-image" alt="Réseau PME">
+      <div class="project-content">
+        <h2>Architecture Réseau PME</h2>
+        <p class="project-mini">Déploiement complet sous Cisco : VLAN, routage dynamique EIGRP et sécurisation ASA.</p>
+        <div class="project-tags-preview">
+            <span>Cisco ASA</span><span>VLAN / DMZ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p3" data-category="web" tabindex="0" role="button">
+      <img src="SAE25/portfolio_image.jpg" class="project-image" alt="Portfolio">
+      <div class="project-content">
+        <h2>Portfolio Web Custom</h2>
+        <p class="project-mini">Développement front-end complet (HTML/CSS/JS) axé UI/UX et sans aucun framework.</p>
+        <div class="project-tags-preview">
+            <span>Front-end</span><span>UI/UX</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p12" data-category="telecom web" tabindex="0" role="button">
+      <img src="SAE31/dvb-t2.webp" class="project-image" alt="Télédiffusion et Multimédia" style="background-color: #1a252c;">
+      <div class="project-content">
+        <h2>Télédiffusion & Dev Multimédia</h2>
+        <p class="project-mini">Analyse RF & DVB-T/S sur mesureur de champ et développement d'un lecteur audio interactif via GStreamer et Python.</p>
+        <div class="project-tags-preview">
+            <span>DVB-T/S</span><span>Python</span><span>GStreamer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card" data-id="p13" data-category="reseau dev" tabindex="0" role="button">
+      <img src="R405/ad.webp" class="project-image" alt="Automatisation Active Directory PowerShell" style="background-color: #012456;">
+      <div class="project-content">
+        <h2>Automatisation AD & PowerShell</h2>
+        <p class="project-mini">Déploiement complet d'un domaine Windows Server 2025 et automatisation du cycle de vie utilisateur via un script robuste.</p>
+        <div class="project-tags-preview">
+            <span>PowerShell</span><span>Active Directory</span><span>SysAdmin</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div><div id="modalOverlay" class="modal-overlay" aria-hidden="true">
+  <div id="projectModal" class="modal-box" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-header">
+        <h2 id="modalTitle" class="modal-title"></h2>
+        <button id="closeModal" class="modal-close" aria-label="Fermer">&times;</button>
+    </div>
+    <div id="modalTags" class="modal-tags"></div>
+    <div id="modalContent" class="modal-scroll"></div>
+  </div>
+</div>
+
+
+
+</section>
+
+<section id="contact" class="onepage-section onepage-section--contact" aria-label="Contact">
+<div class="section-shell"><div class="section-kicker"><span class="kicker-line"></span>04 / Contact</div>
+
+  <section class="contact-hero">
+    <div class="hero-badge">Échangeons</div>
+    <h2><span class="highlight">Entrer en</span> contact</h2>
+    <p>
+      Alternance, projets réseau / cyber, CTF ou simple prise de contact : tout commence ici.
+      Laisse un message ou passe directement par l’un de mes profils.
+    </p>
+  </section>
+
+  <section class="contact-main" aria-labelledby="contact-title">
+    <div class="contact-left">
+
+      <article class="contact-card contact-direct">
+        <h2 id="contact-title">Contact direct</h2>
+        <p class="contact-lead">
+          Pour un échange rapide et sérieux (alternance, projet, collaboration), voici les
+          canaux prioritaires.
+        </p>
+
+        <div class="contact-direct-grid">
+          <div class="direct-item">
+            <span class="direct-label">Email Pro</span>
+            <a href="mailto:walid.badaoui@etu.unice.fr" class="direct-value">
+              walid.badaoui@etu.unice.fr
+            </a>
+            <p class="direct-note">Adresse universitaire principale.</p>
+          </div>
+
+          <div class="direct-item">
+            <span class="direct-label">GitHub</span>
+            <a href="https://github.com/WaridoSann" class="direct-value" target="_blank" rel="noopener noreferrer">github.com/WaridoSann</a>
+            <p class="direct-note">Code et projets publics.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="contact-card contact-reasons">
+        <h2>Pourquoi me contacter ?</h2>
+        <ul class="reason-list" aria-label="Raisons de contact">
+          <li>
+            <span class="reason-tag">🎯 Projets professionnels</span>
+            <p>Projets orientés réseaux, cybersécurité, pentest, automatisation.</p>
+          </li>
+          <li>
+            <span class="reason-tag">🧪 CTF & lab</span>
+            <p>Échanger sur des challenges, former une équipe, partager des write-ups.</p>
+          </li>
+          <li>
+            <span class="reason-tag">🤝 Collaboration</span>
+            <p>Développement d'outils de sécurité, projets open-source.</p>
+          </li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="contact-right">
+      <article class="contact-card contact-form-card">
+        <h2>M'envoyer un message</h2>
+        <p class="contact-lead">
+          Vous préférez m'écrire directement d'ici ? Remplissez ce formulaire et je vous répondrai dans les plus brefs délais.
+        </p>
+
+        <form class="contact-form" action="mailto:walid.badaoui@etu.unice.fr" method="POST" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom & prénom</label>
+              <input id="name" name="Nom" type="text" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Adresse email</label>
+              <input id="email" name="Email" type="email" placeholder="john@doe.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="subject">Sujet</label>
+              <input id="subject" name="Sujet" type="text" placeholder="Proposition de collaboration..." required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full">
+              <label for="message">Message</label>
+              <textarea id="message" name="Message" rows="5" placeholder="Bonjour Walid, je vous contacte car..." required></textarea>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="btn-primary">Envoyer le message</button>
+            <p class="form-note">
+              Après validation, votre application de messagerie s'ouvrira avec un message prérempli. Aucun envoi n'est effectué directement depuis le site.
+            </p>
+          </div>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <section class="social-section" aria-label="Réseaux et plateformes">
+    <h2>Mes profils techniques</h2>
+    <p class="social-lead">
+      Retrouvez ici mes projets publics et les plateformes sur lesquelles je partage mes activités techniques.
+    </p>
+
+    <div class="social-grid">
+
+      <article class="social-card">
+        <div class="social-header">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+          <div>
+            <h3>GitHub</h3>
+            <span class="social-handle">@WaridoSann</span>
+          </div>
+        </div>
+        <p>Hébergement de mes projets de développement, scripts d'automatisation et outils cyber.</p>
+        <a href="https://github.com/WaridoSann" target="_blank" class="social-link" rel="noopener noreferrer">Ouvrir le profil</a>
+      </article>
+
+      <article class="social-card">
+        <div class="social-header">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/rootme.svg" alt="Root-Me">
+          <div>
+            <h3>Root-Me</h3>
+            <span class="social-handle">@wyyyz</span>
+          </div>
+        </div>
+        <p>Résolution de challenges spécifiques (Web, Réseau, Forensic) pour affiner mes techniques.</p>
+        <a href="https://www.root-me.org/wyyyz" target="_blank" class="social-link" rel="noopener noreferrer">Ouvrir le profil</a>
+      </article>
+
+      <article class="social-card">
+        <div class="social-header">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg" alt="Twitch">
+          <div>
+            <h3>Twitch</h3>
+            <span class="social-handle">@waridosann</span>
+          </div>
+        </div>
+        <p>Partage de sessions d'entraînement CTF, développement en direct et discussions tech.</p>
+        <a href="https://www.twitch.tv/waridosann" target="_blank" class="social-link" rel="noopener noreferrer">Voir la chaîne</a>
+      </article>
+      <article class="social-card">
+        <div class="social-header">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord">
+          <div>
+            <h3>Discord</h3>
+            <span class="social-handle">@mwchiky</span>
+          </div>
+        </div>
+        <p>Échanges autour de projets et de sujets techniques.</p>
+      </article>
+    </div>
+  </section>
+
+</div>
+</section></main><footer class="site-footer"><div class="site-footer-inner"><div><a class="footer-brand" href="#accueil">BADAOUI<span>.</span></a><p>Réseaux · Systèmes · Cybersécurité</p></div><nav aria-label="Navigation secondaire"><a href="#accueil">Retour en haut ↑</a><a href="#projets">Projets</a><a href="#contact">Contact</a><a href="https://github.com/WaridoSann" rel="noopener noreferrer" target="_blank">GitHub ↗</a></nav></div></footer></body></html>
