@@ -1,0 +1,248 @@
+/* ============================================================
+   BASE
+============================================================ */
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #f8f6f2;
+    color: #4B4843;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 60px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 2.2rem;
+}
+
+.logo span {
+    color: #EBCB3C;
+}
+
+nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    color: #4B4843;
+    font-size: 1.15rem;
+    transition: .2s;
+}
+
+nav a:hover,
+nav .active-nav {
+    color: #EBCB3C;
+    font-weight: 700;
+}
+
+/* BACKGROUND SHAPES */
+.shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    left: -200px;
+    top: 350px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #EBCB3C 0%, #ede6db 80%);
+    opacity: .35;
+}
+
+.hex {
+    position: absolute;
+    right: 0;
+    top: 200px;
+    width: 420px;
+    height: 420px;
+    background: #EBCB3C;
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
+    opacity: .8;
+}
+
+.bigcircle {
+    position: absolute;
+    left: 45%;
+    top: 80px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ede6db 25%, #EBCB3C 100%);
+    opacity: .3;
+}
+
+/* TITLE */
+.projets-header {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.projets-header h1 {
+    font-family: 'Montserrat';
+    font-size: 2.6rem;
+}
+
+.highlight {
+    color: #EBCB3C;
+}
+
+/* FILTERS */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px auto 50px;
+}
+
+.filter-btn {
+    padding: 10px 22px;
+    border-radius: 20px;
+    border: 2px solid #EBCB3C;
+    background: transparent;
+    font-family: 'Montserrat';
+    cursor: pointer;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #EBCB3C;
+    color: #4B4843;
+}
+
+/* GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 40px;
+    padding: 0 40px 80px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+    border: 2px solid #ede6db;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: #EBCB3C;
+}
+
+.project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 22px;
+}
+
+.project-mini {
+    font-size: .95rem;
+    color: #7B6C5D;
+    font-style: italic;
+}
+
+/* MODALE */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.82);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-box {
+    width: 70%;
+    max-width: 950px;
+    max-height: 86vh;
+    background: #0e0e0e;
+    border: 2px solid #EBCB3C;
+    padding: 30px;
+    border-radius: 14px;
+    color: #EBCB3C;
+    font-family: monospace;
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    z-index: 3000;
+}
+
+.modal-close {
+    position: absolute;
+    right: 22px;
+    top: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-tags {
+    margin: 10px 0 20px;
+}
+
+.modal-tags .tag {
+    display: inline-block;
+    background: #EBCB3C;
+    color: #0e0e0e;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-right: 6px;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.modal-scroll {
+    overflow-y: auto;
+    max-height: 60vh;
+    padding-right: 15px;
+}
+
+/* SCROLLBAR STYLE */
+.modal-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-scroll::-webkit-scrollbar-thumb {
+    background: #EBCB3C;
+    border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    .modal-box {
+        width: 90%;
+    }
+}

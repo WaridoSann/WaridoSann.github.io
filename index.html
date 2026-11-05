@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badaoui - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #ffffff;
+            color: #4B4843;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* HEADER */
+        header {
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 32px 60px 0 60px;
+            background: transparent;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            color: #4B4843;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+        .logo span {
+            color: #EBCB3C;
+            font-size: 2.4rem;
+            font-family: inherit;
+        }
+
+        nav.main-nav {
+            display: flex;
+            gap: 2.5rem;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+        }
+        nav.main-nav a {
+            color: #4B4843;
+            font-size: 1.18rem;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: color .2s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        nav.main-nav a:hover, nav.main-nav a:focus {
+            color: #EBCB3C;
+            outline: none;
+        }
+        nav.main-nav a:focus-visible {
+            outline: 2px solid #EBCB3C;
+            outline-offset: 2px;
+        }
+        nav.main-nav a.active-nav { color: #EBCB3C; font-weight:800; }
+
+        .socials {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .socials a:focus-visible img {
+            outline: 2px solid #EBCB3C;
+            outline-offset: 2px;
+        }
+        .socials img {
+            width: 24px;
+            height: 24px;
+            display: block;
+            filter: grayscale(40%);
+            opacity: 0.85;
+            transition: filter 0.2s, opacity 0.2s, transform 0.2s;
+        }
+        .socials a:hover img,
+        .socials a:focus img {
+            filter: none;
+            opacity: 1;
+            transform: scale(1.12);
+        }
+
+        /* FOND FLUIDE JAUNE ET BLANC */
+        .shapes {
+            position: fixed;
+            z-index: 0;
+            width: 100vw; height: 100vh;
+            top: 0; left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        .blob1 {
+            position: absolute;
+            left: -10vw; top: -10vh;
+            width: 50vw; height: 50vw;
+            background: rgba(235, 203, 60, 0.3);
+            border-radius: 50%;
+            filter: blur(120px);
+        }
+        .blob2 {
+            position: absolute;
+            right: -10vw; bottom: -10vh;
+            width: 60vw; height: 60vw;
+            background: rgba(235, 203, 60, 0.2);
+            border-radius: 50%;
+            filter: blur(140px);
+        }
+        .blob3 {
+            position: absolute;
+            left: 30vw; top: 40vh;
+            width: 40vw; height: 40vw;
+            background: rgba(237, 230, 219, 0.4);
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+
+        /* MAIN */
+        main {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 10px;
+            min-height: calc(100vh - 90px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro {
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 40px;
+            z-index: 2;
+        }
+        
+        .salut {
+            font-size: 1.7rem;
+            letter-spacing: 2px;
+            color: #4B4843;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+            margin-top: 40px;
+            font-weight: 700;
+            position: relative;
+        }
+        .salut-underscore {
+            display: inline-block;
+            width: 38px;
+            height: 5px;
+            background: #EBCB3C;
+            border-radius: 2px;
+            margin-left: 14px;
+            margin-bottom: 8px;
+        }
+        h1 {
+            font-size: 2.9rem;
+            margin: 0 0 12px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+        .je-suis {
+            color: #4B4843;
+            font-weight: 900;
+            margin-right: 9px;
+        }
+        .prenom {
+            color: #EBCB3C;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1.5px;
+            font-size: 2.9rem;
+        }
+        
+        /* STYLE DU TEXTE DE PRÉSENTATION */
+        .desc {
+            font-size: 1.15rem;
+            color: #4B4843;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            margin-top: 12px;
+            max-width: 540px;
+            background: transparent;
+            padding: 0;
+        }
+        .desc strong {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .cta {
+            display: flex;
+            gap: 1.1rem;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: #4B4843;
+            color: #fff;
+            border: none;
+            outline: none;
+            padding: 10px 22px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 7px;
+            box-shadow: 0 5px 20px rgba(75,72,67,0.12);
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none;
+            letter-spacing: 0.8px;
+        }
+        .btn:focus-visible {
+            outline: 2px solid #EBCB3C;
+            outline-offset: 2px;
+        }
+        .btn:hover, .btn:focus {
+            background: #EBCB3C;
+            color: #4B4843;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 12px 32px rgba(75,72,67,0.17);
+        }
+        .btn.alt {
+            background: #EBCB3C;
+            color: #4B4843;
+        }
+        .btn.alt:hover, .btn.alt:focus {
+            background: #4B4843;
+            color: #fff;
+        }
+        
+        /* PHOTO À DROITE */
+        .photo-hero {
+            flex: 0 0 380px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+            z-index: 2;
+        }
+        .photo-hero img {
+            width: 340px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 30px 30px 100px 100px/40px 40px 110px 110px;
+            box-shadow: 0 12px 40px rgba(75,72,67,0.22);
+            background: #fff;
+            border: 5px solid #EBCB3C;
+            transition: transform 0.35s cubic-bezier(.25,.8,.25,1), box-shadow 0.35s;
+        }
+        .photo-hero img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 18px 60px 0 rgba(75,72,67,0.28);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            header { padding: 38px 20px 0 20px; }
+            .hero { flex-direction: column; align-items: center; padding-top: 20px; min-height: 0; }
+            .intro { margin-left: 0; align-items: center; text-align: center; }
+            .desc { max-width: 90vw; }
+            .photo-hero { margin-top: 36px; }
+        }
+        @media (max-width: 700px) {
+            header { flex-direction: column; gap: 16px; padding: 20px 10px;}
+            nav.main-nav { flex-wrap: wrap; }
+            .hero { min-height: 80vh; }
+            h1 { font-size: 2.2rem; }
+            .socials img { width: 22px; height: 22px; }
+            .photo-hero img { width: 220px; height: 240px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shapes" aria-hidden="true">
+        <div class="blob1"></div>
+        <div class="blob2"></div>
+        <div class="blob3"></div>
+    </div>
+
+    <header>
+        <div class="logo">BADAOUI<span>.</span></div>
+
+        <nav class="main-nav" aria-label="Menu principal">
+            <a href="#accueil" class="active-nav">Accueil</a>
+            <a href="apropos.html#apropos">À Propos</a>
+            <a href="competences.html">Compétences</a>
+            <a href="projets.html">Projets</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="socials" aria-hidden="true">
+            <a href="https://github.com/" target="_blank" aria-label="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
+            </a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+        </div>
+    </header>
+
+    <main id="accueil">
+        <section class="hero" aria-labelledby="titre-accueil">
+            <div class="intro">
+                <p class="salut" id="titre-accueil">Bienvenue sur mon portfolio<span class="salut-underscore"></span></p>
+
+                <h1>
+                    <span class="je-suis">Je suis</span>
+                    <span class="prenom">Walid</span>
+                </h1>
+
+                <p class="desc">
+                    Actuellement étudiant en deuxième année de BUT Réseaux et Télécommunications, je suis animé par la culture du défi et l'adrénaline de la cybersécurité offensive. Mon ambition est de poursuivre mes études jusqu'à un niveau Bac+5 dans ce domaine afin de devenir Pentester. Dans cette optique, je suis actuellement en recherche active d'un stage pour mettre en pratique mes connaissances. Sur ce portfolio, vous retrouverez l'ensemble des projets techniques et des challenges qui ont forgé mes compétences opérationnelles durant ces deux dernières années.
+                </p>
+
+                <nav class="cta" aria-label="Appels à l'action">
+                    <a class="btn" href="CV_BADAOUI_WALID.pdf" download>Télécharger mon CV</a>
+                    <a class="btn alt" href="mailto:walid.badaoui@etu.unice.fr">Me contacter</a>
+                    <a class="btn" href="projets.html">Découvrir mes projets</a>
+                </nav>
+            </div>
+
+            <div class="photo-hero">
+                <img src="img/photo.JPG" alt="Photo professionnelle de Walid Badaoui" />
+            </div>
+        </section>
+    </main>
+</body>
+</html>

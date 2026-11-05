@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compétences – Walid Badaoui</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:900,700,500,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+
+  <style>
+  :root {
+    --bg-main: #ffffff;
+    --text-main: #4B4843;
+    --text-soft: #7B6C5D;
+    --accent: #EBCB3C;
+    --accent-soft: #fff4b8;
+    --card-bg: rgba(255, 255, 255, 0.65);
+    --radius-lg: 12px;
+    --shadow-soft: 0 4px 18px rgba(0,0,0,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Roboto', Verdana, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* FOND FLUIDE JAUNE ET BLANC */
+  .shapes {
+      position: fixed;
+      z-index: 0;
+      width: 100vw; height: 100vh;
+      top: 0; left: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background: #ffffff;
+  }
+  .blob1 {
+      position: absolute;
+      left: -10vw; top: -10vh;
+      width: 50vw; height: 50vw;
+      background: rgba(235, 203, 60, 0.3);
+      border-radius: 50%;
+      filter: blur(120px);
+  }
+  .blob2 {
+      position: absolute;
+      right: -10vw; bottom: -10vh;
+      width: 60vw; height: 60vw;
+      background: rgba(235, 203, 60, 0.2);
+      border-radius: 50%;
+      filter: blur(140px);
+  }
+  .blob3 {
+      position: absolute;
+      left: 30vw; top: 40vh;
+      width: 40vw; height: 40vw;
+      background: rgba(237, 230, 219, 0.4);
+      border-radius: 50%;
+      filter: blur(100px);
+  }
+
+  /* HEADER */
+  header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 32px 60px 0 60px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+  }
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: var(--text-main);
+  }
+  .logo span { color: var(--accent); font-size: 2.4rem; }
+
+  nav {
+    display: flex;
+    gap: 2.5rem;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  nav a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.18rem;
+    font-weight: 500;
+    color: var(--text-main);
+    transition: color .2s;
+    letter-spacing: 1px;
+  }
+  nav a:hover, nav a:focus { color: var(--accent); outline: none; }
+  nav a.active-nav { color: var(--accent); font-weight: 800; }
+
+  .socials { display: flex; gap: 1rem; align-items: center; }
+  .socials img { width: 24px; height: 24px; display: block; filter: grayscale(40%); opacity: 0.85; transition: transform .2s, filter .2s; }
+  .socials a:hover img { opacity: 1; filter: none; transform: scale(1.12); }
+
+  main { position: relative; z-index: 1; min-height: 100vh; width: 100%; padding: 40px 0 80px; }
+
+  /* HERO */
+  .skills-hero { max-width: 900px; margin: 40px auto 10px; text-align: center; padding: 8px 20px; }
+  .skills-hero h1 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:3rem; margin:0 0 20px; color: var(--text-main); }
+  .skills-hero h1 span { color: var(--accent); }
+  .skills-hero p { margin:0 auto; max-width:720px; font-size:1.15rem; color:var(--text-main); line-height: 1.7; }
+
+  /* FILTRES */
+  .skills-filters { max-width:960px; margin:40px auto; display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:0 16px; }
+  .skill-filter-btn { border-radius:999px; border:1.5px solid var(--accent); background:transparent; padding:9px 18px; cursor:pointer; font-family:'Montserrat',sans-serif; font-size:.9rem; letter-spacing:.8px; text-transform:uppercase; color:var(--text-main); transition: all .2s; }
+  .skill-filter-btn:hover { background: var(--accent-soft); }
+  .skill-filter-btn.active { background: var(--accent); color: var(--text-main); box-shadow: 0 6px 20px rgba(235,203,60,0.4); }
+
+  /* GRILLE */
+  .skills-section { max-width:1150px; margin:0 auto 40px; padding:0 18px; }
+  .skills-section-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:2rem; margin-bottom:25px; margin-top: 40px; color:var(--text-main); display: flex; align-items: center; gap: 15px; }
+  .skills-section-title::before { content: ""; display: inline-block; width: 40px; height: 4px; background: var(--accent); border-radius: 2px; }
+  .skills-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:25px; }
+
+  /* CARTES */
+  .skill-card {
+    background: var(--card-bg); border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
+    padding: 25px; position: relative; overflow: hidden; border: 1px solid rgba(235, 203, 60, 0.4);
+    display:flex; flex-direction:column; gap:12px; transform: translateY(0); opacity:0;
+    animation: cardFadeUp .5s ease-out forwards; cursor: pointer; backdrop-filter: blur(5px); transition: all .25s;
+  }
+  .skill-card:nth-child(2n) { animation-delay: 0.05s; }
+  .skill-card:nth-child(3n) { animation-delay: 0.1s; }
+  .skill-card:nth-child(4n) { animation-delay: 0.15s; }
+
+  @keyframes cardFadeUp { from { opacity:0; transform: translateY(15px);} to { opacity:1; transform: translateY(0);} }
+  .skill-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(235, 203, 60, 0.18); background: #ffffff; border-color: var(--accent); }
+
+  .skill-card-header { display:flex; align-items:center; gap:15px; margin-bottom: 5px; }
+  .skill-icon-wrap { width:48px; height:48px; border-radius:12px; background:#fff8d3; display:flex; align-items:center; justify-content:center; box-shadow:0 3px 10px rgba(235,203,60,0.3); }
+  .skill-icon { width:28px; height:28px; }
+  .skill-title { font-family:'Montserrat',sans-serif; font-size:1.25rem; margin:0; color: var(--text-main); font-weight: 800; }
+  .skill-short { margin:0; font-size:1.02rem; color:#444; line-height: 1.55; }
+  .skill-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:10px; }
+  .tag { display:inline-flex; align-items:center; padding:5px 12px; border-radius:6px; background:rgba(235,203,60,0.15); font-size:.85rem; font-family:'Montserrat',sans-serif; font-weight:600; color: var(--text-main); border: 1px solid rgba(235,203,60,0.4); }
+  .pentest-icon { font-size:1.5rem; }
+
+  /* MODALE */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display:none; justify-content:center; align-items:center; z-index:9998; backdrop-filter: blur(5px); }
+  .modal-box { position: fixed; inset: 10vh 50%; transform: translateX(-50%); width: min(750px, 92vw); max-height: 80vh; background:#ffffff; border-radius:16px; border:2px solid var(--accent); box-shadow: 0 20px 60px rgba(0,0,0,0.25); color: var(--text-main); display:none; z-index:9999; }
+  .modal-inner { padding: 35px 40px; display:flex; flex-direction:column; height:100%; position: relative; }
+  
+  /* CORRECTION DU BOUTON FERMER */
+  .modal-close { position:absolute; top:15px; right:20px; border:none; background:transparent; color:var(--text-main); font-size:2.5rem; cursor:pointer; font-weight: 500; transition: color .2s; z-index: 10000; padding: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+  .modal-close:hover { color: var(--accent); }
+  
+  .modal-inner h2 { font-family:'Montserrat',sans-serif; font-size:1.8rem; margin:0 0 20px; color: var(--text-main); font-weight: 900; padding-right: 40px; }
+  .modal-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:25px; }
+  .modal-tags .tag { background: rgba(235,203,60,0.25); color: var(--text-main); border: 1px solid var(--accent); font-size: 0.9rem; }
+  .modal-scroll { flex:1; overflow-y:auto; padding-right:10px; font-size:1.1rem; line-height:1.7; }
+  .modal-scroll strong { color: #222; font-weight: 800; }
+  
+  /* NOUVEAU STYLE : BLOC PROJETS LIÉS */
+  .linked-projects { margin-top: 30px; padding: 20px; background: rgba(235, 203, 60, 0.1); border-left: 5px solid var(--accent); border-radius: 0 8px 8px 0; }
+  .linked-projects-title { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #222; font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .linked-projects ul { margin: 0; padding-left: 20px; }
+  .linked-projects li { margin-bottom: 8px; color: #444; }
+  .linked-projects a { color: #222; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: color .2s; }
+  .linked-projects a:hover { color: var(--accent); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    header { flex-direction: column; gap: 14px; padding: 20px 16px 0; }
+    nav { flex-wrap: wrap; gap: 1rem; }
+    .skills-hero h1 { font-size: 2.4rem; }
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  }
+  @media (max-width: 700px) {
+    .skills-hero { margin-top: 24px; }
+    .modal-box { inset: 5vh 2%; transform: none; width: 96vw; max-height: 90vh; }
+    .modal-inner { padding: 25px 20px; }
+  }
+  </style>
+</head>
+<body>
+
+<div class="shapes" aria-hidden="true">
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="blob3"></div>
+</div>
+
+<header>
+  <div class="logo">BADAOUI<span>.</span></div>
+  <nav aria-label="Menu principal">
+    <a href="index1.html">Accueil</a>
+    <a href="apropos.html">À Propos</a>
+    <a href="competences.html" class="active-nav">Compétences</a>
+    <a href="projets.html">Projets</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="socials" aria-hidden="true">
+    <a href="https://github.com/" target="_blank" aria-label="GitHub"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
+    <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
+  </div>
+</header>
+
+<main>
+
+  <section class="skills-hero">
+    <h1><span>Compétences</span> & Stack Technique</h1>
+    <p>
+      Développement, infrastructures réseaux, cybersécurité offensive et état d'esprit. 
+      Voici les outils et les méthodes qui me permettent de mener mes projets à bien.
+      Cliquez sur une carte pour explorer les détails.
+    </p>
+  </section>
+
+  <section class="skills-filters" aria-label="Filtres compétences">
+    <button class="skill-filter-btn active" data-filter="all">Tout</button>
+    <button class="skill-filter-btn" data-filter="dev">Développement</button>
+    <button class="skill-filter-btn" data-filter="reseau">Réseaux & Systèmes</button>
+    <button class="skill-filter-btn" data-filter="pentest">Pentest / Cyber</button>
+    <button class="skill-filter-btn" data-filter="soft">Soft skills</button>
+  </section>
+
+  <section class="skills-section">
+    <h2 class="skills-section-title">Technique & Cybersécurité</h2>
+
+    <div class="skills-grid" id="skillsGrid">
+
+      <article class="skill-card" data-id="python" data-category="dev pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="skill-icon" alt="Python"></div>
+          <h3 class="skill-title">Python</h3>
+        </div>
+        <p class="skill-short">Scripts d’automatisation, outils d'exploitation pour CTF et traitement de données brutes.</p>
+        <div class="skill-tags"><span class="tag">POO</span><span class="tag">Automatisation</span><span class="tag">Scripting</span></div>
+      </article>
+
+      <article class="skill-card" data-id="java" data-category="dev" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="skill-icon" alt="Java"></div>
+          <h3 class="skill-title">Java</h3>
+        </div>
+        <p class="skill-short">Développement d'applications orientées objet, structures de données et interfaces graphiques.</p>
+        <div class="skill-tags"><span class="tag">POO</span><span class="tag">Algorithmique</span><span class="tag">Logiciel</span></div>
+      </article>
+
+      <article class="skill-card" data-id="php" data-category="dev" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="skill-icon" alt="PHP"></div>
+          <h3 class="skill-title">PHP (Back-end)</h3>
+        </div>
+        <p class="skill-short">Développement de pages dynamiques, formulaires sécurisés et logique serveur.</p>
+        <div class="skill-tags"><span class="tag">Back-end</span><span class="tag">Sessions</span><span class="tag">Sécurité Front</span></div>
+      </article>
+
+      <article class="skill-card" data-id="mysql" data-category="dev" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="skill-icon" alt="MySQL"></div>
+          <h3 class="skill-title">MySQL / MariaDB</h3>
+        </div>
+        <p class="skill-short">Conception de schémas relationnels, requêtes complexes et gestion de bases de données.</p>
+        <div class="skill-tags"><span class="tag">SQL</span><span class="tag">Modélisation</span><span class="tag">Bases de données</span></div>
+      </article>
+
+      <article class="skill-card" data-id="reseaux" data-category="reseau" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/networkx/networkx-original.svg" class="skill-icon" alt="Réseaux" style="filter: brightness(0.2);"></div>
+          <h3 class="skill-title">Configuration équipements réseaux</h3>
+        </div>
+        <p class="skill-short">Déploiement d’architectures complexes, gestion de routeurs/switchs et sécurisation des flux réseau.</p>
+        <div class="skill-tags"><span class="tag">Cisco</span><span class="tag">VLAN / Routage</span><span class="tag">Pare-feu / DMZ</span></div>
+      </article>
+
+      <article class="skill-card" data-id="linux" data-category="reseau pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="skill-icon" alt="Linux"></div>
+          <h3 class="skill-title">Administration Linux</h3>
+        </div>
+        <p class="skill-short">Gestion avancée du système, bash scripting, configuration de services et durcissement OS.</p>
+        <div class="skill-tags"><span class="tag">Debian / Kali</span><span class="tag">Bash</span><span class="tag">Permissions</span></div>
+      </article>
+
+      <article class="skill-card" data-id="recon" data-category="pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap pentest-icon">🕵️‍♂️</div>
+          <h3 class="skill-title">Reconnaissance & Footprinting</h3>
+        </div>
+        <p class="skill-short">Processus de penetration testing : information gathering, scan de ports et vulnerability assessment.</p>
+        <div class="skill-tags"><span class="tag">Nmap</span><span class="tag">OSINT</span><span class="tag">Vuln Assessment</span></div>
+      </article>
+
+      <article class="skill-card" data-id="webpentest" data-category="pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap pentest-icon">🌐</div>
+          <h3 class="skill-title">Exploitation Web</h3>
+        </div>
+        <p class="skill-short">Identification et exploitation des failles applicatives web lors d'audits ou de CTF.</p>
+        <div class="skill-tags"><span class="tag">SQLi / XSS</span><span class="tag">LFI / RFI</span><span class="tag">Burp Suite</span></div>
+      </article>
+
+      <article class="skill-card" data-id="shells" data-category="pentest" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap pentest-icon">💀</div>
+          <h3 class="skill-title">Payloads, Shells & Cracking</h3>
+        </div>
+        <p class="skill-short">Génération de reverse shells, craquage de mots de passe et élévation de privilèges (PrivEsc).</p>
+        <div class="skill-tags"><span class="tag">Reverse Shell</span><span class="tag">Hashcat / John</span><span class="tag">PrivEsc</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="skills-section soft-section">
+    <h2 class="skills-section-title">Soft Skills & Mindset</h2>
+
+    <div class="skills-grid soft-grid">
+
+      <article class="skill-card soft-card" data-id="perseverance" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">🔥</div></div>
+          <h3 class="skill-title">Persévérance (Obsession)</h3>
+        </div>
+        <p class="skill-short">Je ne lâche jamais. Si je bloque sur un problème, je deviens obsédé jusqu'à en trouver la faille ou la solution.</p>
+        <div class="skill-tags"><span class="tag">Détermination</span><span class="tag">Résolution</span></div>
+      </article>
+
+      <article class="skill-card soft-card" data-id="organisation" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">📅</div></div>
+          <h3 class="skill-title">Organisation Militaire</h3>
+        </div>
+        <p class="skill-short">Je planifie ma semaine à l'heure près : apprentissage, sport, dev perso et devoirs. Rien n'est laissé au hasard.</p>
+        <div class="skill-tags"><span class="tag">Planification</span><span class="tag">Gestion du temps</span></div>
+      </article>
+
+      <article class="skill-card soft-card" data-id="rigueur" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">⏱️</div></div>
+          <h3 class="skill-title">Rigueur & Deadlines</h3>
+        </div>
+        <p class="skill-short">Capable de gérer une multitude de projets en parallèle tout en garantissant des rendus de haute qualité dans les temps.</p>
+        <div class="skill-tags"><span class="tag">Fiabilité</span><span class="tag">Gestion du stress</span></div>
+      </article>
+
+      <article class="skill-card soft-card" data-id="curiosite" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">🧠</div></div>
+          <h3 class="skill-title">Curiosité & Veille</h3>
+        </div>
+        <p class="skill-short">Apprentissage continu et proactif. Je me forme quotidiennement via des labs, des CTF et des articles spécialisés.</p>
+        <div class="skill-tags"><span class="tag">HackTheBox</span><span class="tag">Veille Cyber</span></div>
+      </article>
+
+      <article class="skill-card soft-card" data-id="equipe" data-category="soft" tabindex="0" role="button">
+        <div class="skill-card-header">
+          <div class="skill-icon-wrap"><div style="font-size:24px">🤝</div></div>
+          <h3 class="skill-title">Synergie d'Équipe</h3>
+        </div>
+        <p class="skill-short">Forgé par les très nombreux projets de groupe du BUT, je sais comment diviser, communiquer et fusionner le travail.</p>
+        <div class="skill-tags"><span class="tag">Collaboration</span><span class="tag">Git / Partage</span></div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<div id="skillsModalOverlay" class="modal-overlay" aria-hidden="true"></div>
+<div id="skillsModal" class="modal-box" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalSkillTitle">
+  <button id="closeSkillsModal" class="modal-close" aria-label="Fermer">&times;</button>
+  <div class="modal-inner">
+    <h2 id="modalSkillTitle"></h2>
+    <div id="modalSkillTags" class="modal-tags"></div>
+    <div id="modalSkillContent" class="modal-scroll"></div>
+  </div>
+</div>
+
+<script>
+/* DATA MODALES (Avec tableaux "projects" prêts à être remplis) */
+const skillsDetails = {
+  python: {
+    title: "Python", tags: ["Automatisation", "Scripting", "POO"],
+    html: "<strong>Contexte :</strong><br>Outil indispensable pour l'automatisation de mes tâches et le CTF.<br><br><strong>Ce que je fais :</strong><br>• Création de scripts pour automatiser la reconnaissance.<br>• Manipulation de données (fichiers logs, JSON).<br>• Écriture d'exploits customisés.",
+    projects: [
+      { name: "Projet SAE 1.05", link: "projets.html", desc: "Scripting pour automatiser le traitement de données réseaux." }
+    ]
+  },
+  java: {
+    title: "Java", tags: ["POO", "Algorithmique", "Logiciel"],
+    html: "<strong>Contexte :</strong><br>Langage principal abordé lors du cursus BUT pour comprendre la structure logicielle profonde.<br><br><strong>Ce que je fais :</strong><br>• Développement orienté objet (héritage, polymorphisme, interfaces).<br>• Création d'applications avec des structures de données complexes.",
+    projects: [
+      { name: "Application de gestion (SAE)", link: "projets.html", desc: "Développement du back-end robuste en Java." }
+    ]
+  },
+  php: {
+    title: "PHP (Back-end)", tags: ["Back-end", "Sessions", "Sécurité Front"],
+    html: "<strong>Contexte :</strong><br>Langage utilisé pour lier mes bases de données à mes interfaces web.<br><br><strong>Ce que je fais :</strong><br>• Traitement PHP sécurisé côté serveur (sessions, prévention injections SQL).<br>• Création d'API basiques et de systèmes d'authentification.",
+    projects: [
+      { name: "Plateforme Web", link: "projets.html", desc: "Création de la logique de connexion et du traitement des formulaires." }
+    ]
+  },
+  mysql: {
+    title: "MySQL / MariaDB", tags: ["SQL", "Modélisation", "Bases de données"],
+    html: "<strong>Contexte :</strong><br>Indispensable pour le stockage persistant dans mes projets web.<br><br><strong>Ce que je fais :</strong><br>• Modélisation MCD/MLD propre et normalisée.<br>• Requêtes complexes avec jointures et sous-requêtes.<br>• Sensibilisation aux attaques de type SQL Injection.",
+    projects: [
+      { name: "Base de données E-commerce", link: "projets.html", desc: "Conception du schéma relationnel complet." }
+    ]
+  },
+  reseaux: {
+    title: "Configuration d'équipements réseaux", tags: ["Cisco", "VLAN / Routage", "Pare-feu"],
+    html: "<strong>Contexte :</strong><br>Travaux pratiques intensifs et SAE (Projet PME).<br><br><strong>Ce que je fais :</strong><br>• Design et déploiement d'architectures réseau segmentées (multi-VLAN).<br>• Configuration avancée de routeurs et switchs (Cisco, EIGRP/OSPF).<br>• Sécurisation périmétrique via pare-feu (ASA) et création de DMZ.",
+    projects: [
+      { name: "Infrastructure PME (SAE 21)", link: "projets.html", desc: "Mise en place de l'architecture complète, de l'adressage au routage." }
+    ]
+  },
+  linux: {
+    title: "Administration Linux", tags: ["Debian / Kali", "Bash", "Services"],
+    html: "<strong>Contexte :</strong><br>Environnement de travail quotidien, que ce soit pour l'administration ou les attaques.<br><br><strong>Ce que je fais :</strong><br>• Gestion stricte des utilisateurs, groupes et permissions.<br>• Déploiement et sécurisation de services vitaux (Apache, SSH).<br>• Automatisation système via des scripts Bash.",
+    projects: []
+  },
+  recon: {
+    title: "Reconnaissance & Footprinting", tags: ["Nmap", "OSINT", "Vuln Assessment"],
+    html: "<strong>Contexte :</strong><br>La phase la plus cruciale du Penetration Testing Process.<br><br><strong>Ce que je fais :</strong><br>• Information gathering passif (OSINT) et actif (Scans Nmap poussés).<br>• Cartographie de la surface d'attaque et identification des services exposés.<br>• Évaluation de vulnérabilités (Vulnerability Assessment).",
+    projects: [
+      { name: "HackTheBox / CTF", link: "projets.html", desc: "Phase initiale systématique sur chaque machine affrontée." }
+    ]
+  },
+  webpentest: {
+    title: "Exploitation Web", tags: ["SQLi / XSS", "Burp Suite", "Web App"],
+    html: "<strong>Contexte :</strong><br>Audits applicatifs sur des environnements d'entraînement dédiés.<br><br><strong>Ce que je fais :</strong><br>• Interception, analyse et manipulation de requêtes HTTP avec Burp Suite.<br>• Exploitation de failles d'injection (SQLi, Command Injection).<br>• Recherche de failles logiques, contournement d'authentification et XSS.",
+    projects: []
+  },
+  shells: {
+    title: "Payloads, Shells & Cracking", tags: ["Reverse Shell", "Hashcat / John", "PrivEsc"],
+    html: "<strong>Contexte :</strong><br>L'accès initial et la post-exploitation sur les machines cibles.<br><br><strong>Ce que je fais :</strong><br>• Génération de payloads pour contourner les défenses et obtenir des reverse shells.<br>• Craquage de mots de passe (attaques par dictionnaire, règles) avec Hashcat.<br>• Escalade de privilèges (PrivEsc) sous Linux (SUID, sudoers, PATH hijack).",
+    projects: []
+  },
+  perseverance: {
+    title: "Persévérance (Obsession)", tags: ["Détermination", "Résolution"],
+    html: "<strong>Mentalité :</strong><br>Quand je ne comprends pas quelque chose, je ne passe pas à autre chose. Je deviens obsédé par le problème tant que je n'en ai pas extrait la solution et la logique profonde. C'est essentiel face aux challenges cyber.",
+    projects: []
+  },
+  organisation: {
+    title: "Organisation Militaire", tags: ["Planification", "Gestion du temps"],
+    html: "<strong>Mentalité :</strong><br>La discipline remplace la motivation. Chaque semaine, mon emploi du temps est tracé : heures d'apprentissage technique, sport, développement personnel et devoirs. Rien n'est laissé au hasard.",
+    projects: []
+  },
+  rigueur: {
+    title: "Rigueur & Deadlines", tags: ["Fiabilité", "Gestion du stress"],
+    html: "<strong>Mentalité :</strong><br>La formation m'impose de gérer un flux massif de projets simultanés. J'ai appris à encaisser cette pression en respectant strictement les deadlines sans jamais sacrifier la qualité finale du livrable.",
+    projects: []
+  },
+  curiosite: {
+    title: "Curiosité & Veille", tags: ["HackTheBox", "Auto-formation"],
+    html: "<strong>Mentalité :</strong><br>La technologie évolue vite, les failles encore plus. Ma formation ne s'arrête pas à la porte de l'IUT : je ponce régulièrement les machines de Hack The Box et j'ingère des articles pour rester affûté.",
+    projects: []
+  },
+  equipe: {
+    title: "Synergie d'Équipe", tags: ["Collaboration", "Projets BUT"],
+    html: "<strong>Mentalité :</strong><br>Le BUT R&T est construit autour des projets de groupe (SAE). J'ai l'habitude de composer avec différentes personnalités, de diviser intelligemment le travail, de versionner nos codes (Git) et de synchroniser nos efforts.",
+    projects: []
+  }
+};
+
+/* GESTION MODALE & FILTRES */
+const overlay = document.getElementById("skillsModalOverlay");
+const modal = document.getElementById("skillsModal");
+const modalTitle = document.getElementById("modalSkillTitle");
+const modalTags = document.getElementById("modalSkillTags");
+const modalContent = document.getElementById("modalSkillContent");
+const closeBtn = document.getElementById("closeSkillsModal");
+
+function openSkillModal(id) {
+  const data = skillsDetails[id];
+  if (!data) return;
+  
+  // 1. Titre et tags
+  modalTitle.textContent = data.title;
+  modalTags.innerHTML = "";
+  (data.tags || []).forEach(t => {
+    const span = document.createElement("span"); span.className = "tag"; span.textContent = t; modalTags.appendChild(span);
+  });
+  
+  // 2. Contenu principal
+  let htmlContent = `<div>${data.html}</div>`;
+  
+  // 3. Bloc "Projets liés" s'il y en a
+  if (data.projects && data.projects.length > 0) {
+    let projectsList = data.projects.map(p => `<li><a href="${p.link}">${p.name}</a> : ${p.desc}</li>`).join("");
+    htmlContent += `
+      <div class="linked-projects">
+        <div class="linked-projects-title">🚀 Projets liés</div>
+        <ul>${projectsList}</ul>
+      </div>
+    `;
+  }
+  
+  modalContent.innerHTML = htmlContent;
+  
+  // 4. Affichage
+  overlay.style.display = "flex"; 
+  modal.style.display = "block";
+  
+  // Petit hack d'accessibilité pour forcer l'affichage correct du z-index
+  setTimeout(() => { closeBtn.focus(); }, 10);
+}
+
+function closeSkillModal() {
+  overlay.style.display = "none"; 
+  modal.style.display = "none";
+}
+
+// BINDINGS FERMETURE
+closeBtn.addEventListener("click", closeSkillModal);
+overlay.addEventListener("click", e => { if (e.target === overlay) closeSkillModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSkillModal(); });
+
+// BINDINGS CARTES
+document.querySelectorAll(".skill-card").forEach(card => {
+  card.addEventListener('click', () => { const id = card.dataset.id; if (id) openSkillModal(id); });
+  card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+});
+
+// FILTRES
+const filterButtons = document.querySelectorAll(".skill-filter-btn");
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+    filterButtons.forEach(b => b.classList.remove("active")); btn.classList.add("active");
+    document.querySelectorAll(".skill-card").forEach(card => {
+      const cat = (card.dataset.category || "").split(" ");
+      const visible = filter === "all" || cat.includes(filter) || (filter === "soft" && card.classList.contains('soft-card'));
+      card.style.display = visible ? "flex" : "none";
+    });
+  });
+});
+</script>
+
+</body>
+</html>

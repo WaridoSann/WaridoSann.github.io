@@ -1,0 +1,329 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+    background: #f8f6f2;
+    color: #4B4843;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 60px 0 60px;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.2rem;
+    color: #4B4843;
+    letter-spacing: 2px;
+}
+.logo span {
+    color: #EBCB3C;
+    font-size: 2.4rem;
+    font-family: inherit;
+}
+
+nav {
+    display: flex;
+    gap: 2.5rem;
+    flex: 1;
+    justify-content: center;
+}
+nav a {
+    color: #4B4843;
+    font-size: 1.18rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color .2s;
+    font-family: 'Montserrat', sans-serif;
+}
+nav a:hover {
+    color: #7B6C5D;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.socials img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    filter: grayscale(40%);
+    opacity: 0.85;
+    transition: filter 0.2s, opacity 0.2s, transform 0.2s;
+}
+.socials a:hover img {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.12);
+}
+
+/* Background shapes */
+.shapes {
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0; left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.circle {
+    position: absolute;
+    left: -240px; top: 360px;
+    width: 520px; height: 520px;
+    background: radial-gradient(circle at 60% 60%, #EBCB3C 0%, #ede6db 90%);
+    border-radius: 50%;
+    opacity: 0.37;
+    z-index: 0;
+}
+.hex {
+    position: absolute;
+    right: 0; top: 180px;
+    width: 420px; height: 420px;
+    background: #EBCB3C;
+    opacity: 0.85;
+    clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+    z-index: 1;
+}
+.bigcircle {
+    position: absolute;
+    left: 42vw; top: 80px;
+    width: 210px; height: 210px;
+    background: radial-gradient(circle at 30% 30%, #ede6db 25%, #EBCB3C 100%);
+    border-radius: 50%;
+    opacity: 0.28;
+    z-index: 0;
+}
+
+/* --- MAIN LAYOUT FOR PAGES --- */
+main {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- PROJETS HEADER --- */
+.projets-header {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    text-align: center;
+    z-index: 2;
+}
+.projets-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #4B4843;
+    margin-bottom: 12px;
+    letter-spacing: 1.5px;
+}
+.projets-header .highlight {
+    color: #EBCB3C;
+    font-family: inherit;
+}
+.projets-header p {
+    font-size: 1.15rem;
+    color: #7B6C5D;
+    margin-bottom: 36px;
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* --- PROJECTS GRID --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 38px;
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 20px 60px 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    justify-items: center;
+}
+
+/* --- PROJECT CARD --- */
+.project-card {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 6px 32px rgba(75, 72, 67, 0.10);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s, box-shadow 0.18s;
+    border: 2.5px solid #ede6db;
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+}
+.project-card:hover {
+    transform: translateY(-7px) scale(1.025);
+    box-shadow: 0 14px 46px rgba(75, 72, 67, 0.16);
+    border-color: #EBCB3C;
+}
+.project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #ede6db;
+    border-bottom: 2px solid #ede6db;
+    display: block;
+}
+.project-content {
+    padding: 26px 22px 18px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.project-title {
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    color: #4B4843;
+    letter-spacing: 1px;
+}
+.project-meta {
+    font-size: 0.99em;
+    color: #7B6C5D;
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+}
+.project-desc {
+    flex: 1;
+    color: #4B4843;
+    margin-bottom: 16px;
+    font-size: 1.05em;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+}
+.project-tech {
+    margin-bottom: 17px;
+    margin-top: 5px;
+}
+.tech-tag {
+    display: inline-block;
+    background: #ede6db;
+    color: #7B6C5D;
+    border-radius: 16px;
+    padding: 4px 13px;
+    margin: 0 6px 6px 0;
+    font-size: 0.98em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    transition: background 0.2s, color 0.2s;
+}
+.project-links {
+    margin-top: auto;
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+}
+.project-links a {
+    text-decoration: none;
+    color: #fff;
+    background: #4B4843;
+    border-radius: 7px;
+    padding: 8px 22px;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    box-shadow: 0 3px 14px rgba(75, 72, 67, 0.08);
+    border: none;
+    outline: none;
+    display: inline-block;
+}
+.project-links a:hover {
+    background: #EBCB3C;
+    color: #4B4843;
+    box-shadow: 0 7px 24px rgba(235, 203, 60, 0.18);
+}
+
+/* Numéro du projet sur la carte */
+.project-number {
+    position: absolute;
+    top: 15px;
+    left: 18px;
+    background: #EBCB3C;
+    color: #4B4843;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.12rem;
+    padding: 3px 13px 3px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(235,203,60,0.10);
+    z-index: 1;
+    letter-spacing: 1px;
+}
+
+/* Harmonisation hauteur description */
+@media (min-width: 900px) {
+    .project-desc {
+        min-height: 150px;
+    }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+    .projects-grid {
+        max-width: 98vw;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .projets-header { padding-left: 12px; padding-right: 12px; }
+}
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 22px;
+        max-width: 100vw;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+@media (max-width: 700px) {
+    header { flex-direction: column; gap: 16px; }
+    .projects-grid {
+        gap: 14px;
+        padding: 0 3px 30px 3px;
+        grid-template-columns: 1fr;
+        max-width: 100vw;
+    }
+    .projets-header {
+        margin-top: 30px;
+        max-width: 100vw;
+    }
+    .project-content {
+        padding: 15px 8px 10px 8px;
+    }
+    .project-image {
+        height: 120px;
+    }
+    .project-card {
+        max-width: 99vw;
+    }
+}
