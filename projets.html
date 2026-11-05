@@ -396,6 +396,9 @@
     .modal-title { font-size: 1.5rem; }
   }
   </style>
+    <meta name="description" content="Projets de cybersécurité, pentest, infrastructure réseau, systèmes embarqués et développement, avec dossiers techniques et réalisations.">
+    <meta name="theme-color" content="#fffdf8">
+    <link rel="stylesheet" href="polish.css">
 </head>
 <body>
 
@@ -406,30 +409,28 @@
 </div>
 
 <header>
-  <div class="logo">BADAOUI<span>.</span></div>
+  <a class="logo" href="index.html" aria-label="Retour à l’accueil">BADAOUI<span>.</span></a>
 
   <nav aria-label="Menu principal">
     <a href="index.html">Accueil</a>
     <a href="apropos.html">À Propos</a>
     <a href="competences.html">Compétences</a>
-    <a href="projets.html" class="active-nav">Projets</a>
+    <a href="projets.html" class="active-nav" aria-current="page">Projets</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="socials" aria-hidden="true">
-    <a href="https://github.com/WaridoSann" target="_blank" aria-label="GitHub">
+  <div class="socials" aria-label="Réseaux sociaux">
+    <a href="https://github.com/WaridoSann" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
     </a>
-    <span title="Lien LinkedIn à renseigner">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-    </span>
+    
   </div>
 </header>
 
 <main>
   <section class="projets-header">
     <h1><span class="highlight">Projets</span> Réalisés</h1>
-    <p>Découvrez mes réalisations techniques en cybersécurité, réseaux, télécoms et développement.</p>
+    <p>Découvrez 13 réalisations techniques en cybersécurité, réseaux, télécoms et développement, avec des livrables consultables lorsque disponibles.</p>
   </section>
 
   <div class="filters" role="toolbar" aria-label="Filtres projets">
@@ -445,7 +446,7 @@
     <div class="project-card" data-id="p11" data-category="cyber" tabindex="0" role="button">
       <img src="SAE34/sae34_image.png" class="project-image" alt="Audit de Sécurité Pentest" style="background-color: #1a1a1a;">
       <div class="project-content">
-        <h2>Audit Sécurité (Pentest Black Box)</h2>
+        <h2>Audit de sécurité (pentest Black Box)</h2>
         <p class="project-mini">Test d'intrusion complet : exploitation CVE, pivoting réseau, injection de commandes et PrivEsc.</p>
         <div class="project-tags-preview">
             <span>Kill Chain</span><span>Pivoting</span><span>Metasploit</span>
@@ -478,7 +479,7 @@
     <div class="project-card" data-id="p9" data-category="web cyber" tabindex="0" role="button">
       <img src="SAE32/sae32_image.png" class="project-image" alt="Application Android Scanner Réseau" style="background-color: #1a1a1a;">
       <div class="project-content">
-        <h2>App Android : Scanner Vulnérabilités</h2>
+        <h2>Application Android : scanner réseau</h2>
         <p class="project-mini">Développement full-stack : API REST (PHP) et Application Mobile (Java) affichant les failles réseau.</p>
         <div class="project-tags-preview">
             <span>Android (Java)</span><span>API REST</span><span>Réseau</span>
@@ -490,7 +491,7 @@
       <img src="SAE33/topologie_sae33.png" class="project-image" alt="Architecture Réseau Haute Disponibilité" style="background-color: #2c3e50;">
       <div class="project-content">
         <h2>Architecture Réseau Sécurisée</h2>
-        <p class="project-mini">Infrastructure hautement redondante grace a HSRP & OSPF, sécurisée par design (ASA, VPN IPsec, Hardening L2).</p>
+        <p class="project-mini">Infrastructure hautement redondante grâce à HSRP et OSPF, sécurisée par design (ASA, VPN IPsec, Hardening L2).</p>
         <div class="project-tags-preview">
             <span>Haute Dispo</span><span>Cisco ASA</span><span>VPN</span>
         </div>
@@ -545,7 +546,7 @@
       <img src="SAE21/sae21image.jpg" class="project-image" alt="Réseau PME">
       <div class="project-content">
         <h2>Architecture Réseau PME</h2>
-        <p class="project-mini">Déploiement complet sous Cisco : VLANs, Routage dynamique EIGRP et sécurisation ASA.</p>
+        <p class="project-mini">Déploiement complet sous Cisco : VLAN, routage dynamique EIGRP et sécurisation ASA.</p>
         <div class="project-tags-preview">
             <span>Cisco ASA</span><span>VLAN / DMZ</span>
         </div>
@@ -671,7 +672,7 @@ Projet de développement full-stack visant à créer une solution complète d'au
 • Programmation en Java et PHP faisant appels aux concepts de POO.</p>
 
 <p><strong>Livrables :</strong><br>
-<a href="https://github.com/WaridoSann/networkScanner" target="_blank" rel="noopener noreferrer">Projet entier sur Github</a><br>
+<span>Code source privé — présentation du projet possible sur demande.</span><br>
 `
     },
     {
@@ -875,7 +876,7 @@ Pour gérer le cycle de vie des employés, j'ai développé un outil centralisé
 • <strong>Onboarding sécurisé :</strong> Création des comptes avec changement de mot de passe obligatoire. Les dossiers personnels sont générés avec un durcissement NTFS strict (cassage de l'héritage et contrôle total exclusif à l'utilisateur et aux administrateurs).<br>
 • <strong>Offboarding et Rétention :</strong> Lors d'un départ, le script sécurise les données en créant une archive ZIP horodatée du répertoire. Il force ensuite la suppression du dossier original et du compte AD de manière totalement transparente.</p>
 
-<p><strong>Fonctionnalités "Production-Ready" :</strong><br>
+<p><strong>Fiabilisation et tests du script :</strong><br>
 Afin de rendre cet outil fiable pour un environnement de production, j'ai intégré une gestion préventive des erreurs et verrouillé les arguments d'entrée (via <code>[ValidateSet]</code>). Le script intègre également un "Safe-Mode" (grâce au paramètre <code>-WhatIf</code>) permettant de simuler son exécution sans altérer l'infrastructure. Enfin, une fonction personnalisée assure une traçabilité complète en générant des retours console colorés et en consignant chaque action dans un fichier de logs horodaté (<code>historique.log</code>).</p>
 
 <p style="margin-top: 15px;"><strong>Livrable :</strong><br>
@@ -973,5 +974,7 @@ Afin de rendre cet outil fiable pour un environnement de production, j'ai intég
 });
 </script>
 
+
+<footer class="portfolio-footer"><div class="portfolio-footer-inner"><div><strong>BADAOUI<span style="color:#c4a02e">.</span></strong><p>Portfolio technique · Réseaux, systèmes & cybersécurité</p></div><nav aria-label="Liens de pied de page"><a href="index.html">Accueil</a><a href="projets.html">Mes projets</a><a href="contact.html">Contact</a><a href="https://github.com/WaridoSann" target="_blank" rel="noopener noreferrer">GitHub</a></nav></div></footer>
 </body>
 </html>

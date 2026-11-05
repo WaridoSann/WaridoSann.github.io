@@ -189,6 +189,9 @@
     .modal-inner { padding: 25px 20px; }
   }
   </style>
+    <meta name="description" content="Compétences techniques en développement, administration Linux, réseaux Cisco et sécurité offensive, illustrées par des projets.">
+    <meta name="theme-color" content="#fffdf8">
+    <link rel="stylesheet" href="polish.css">
 </head>
 <body>
 
@@ -199,17 +202,17 @@
 </div>
 
 <header>
-  <div class="logo">BADAOUI<span>.</span></div>
+  <a class="logo" href="index.html" aria-label="Retour à l’accueil">BADAOUI<span>.</span></a>
   <nav aria-label="Menu principal">
     <a href="index.html">Accueil</a>
     <a href="apropos.html">À Propos</a>
-    <a href="competences.html" class="active-nav">Compétences</a>
+    <a href="competences.html" class="active-nav" aria-current="page">Compétences</a>
     <a href="projets.html">Projets</a>
     <a href="contact.html">Contact</a>
   </nav>
-  <div class="socials" aria-hidden="true">
-    <a href="https://github.com/WaridoSann" target="_blank" aria-label="GitHub"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
-    <span title="Lien LinkedIn à renseigner"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></span>
+  <div class="socials" aria-label="Réseaux sociaux">
+    <a href="https://github.com/WaridoSann" target="_blank" aria-label="GitHub" rel="noopener noreferrer"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
+    
   </div>
 </header>
 
@@ -329,18 +332,18 @@
       <article class="skill-card soft-card" data-id="perseverance" data-category="soft" tabindex="0" role="button">
         <div class="skill-card-header">
           <div class="skill-icon-wrap"><div style="font-size:24px">🔥</div></div>
-          <h3 class="skill-title">Persévérance (Obsession)</h3>
+          <h3 class="skill-title">Persévérance</h3>
         </div>
-        <p class="skill-short">Je ne lâche jamais. Si je bloque sur un problème, je deviens obsédé jusqu'à en trouver la faille ou la solution.</p>
+        <p class="skill-short">Face à une difficulté technique, je décompose le problème, teste mes hypothèses et documente la solution.</p>
         <div class="skill-tags"><span class="tag">Détermination</span><span class="tag">Résolution</span></div>
       </article>
 
       <article class="skill-card soft-card" data-id="organisation" data-category="soft" tabindex="0" role="button">
         <div class="skill-card-header">
           <div class="skill-icon-wrap"><div style="font-size:24px">📅</div></div>
-          <h3 class="skill-title">Organisation Militaire</h3>
+          <h3 class="skill-title">Organisation & Priorisation</h3>
         </div>
-        <p class="skill-short">Je planifie ma semaine à l'heure près : apprentissage, sport, dev perso et devoirs. Rien n'est laissé au hasard.</p>
+        <p class="skill-short">J'organise mes tâches selon leurs priorités, avec un suivi régulier des échéances et des livrables.</p>
         <div class="skill-tags"><span class="tag">Planification</span><span class="tag">Gestion du temps</span></div>
       </article>
 
@@ -447,13 +450,13 @@ const skillsDetails = {
     projects: []
   },
   perseverance: {
-    title: "Persévérance (Obsession)", tags: ["Détermination", "Résolution"],
-    html: "<strong>Mentalité :</strong><br>Quand je ne comprends pas quelque chose, je ne passe pas à autre chose. Je deviens obsédé par le problème tant que je n'en ai pas extrait la solution et la logique profonde. C'est essentiel face aux challenges cyber.",
+    title: "Persévérance", tags: ["Détermination", "Résolution"],
+    html: "<strong>Mentalité :</strong><br>Je cherche à comprendre la cause d'un problème avant de proposer une solution. En cybersécurité, cette méthode améliore la qualité des analyses.",
     projects: []
   },
   organisation: {
-    title: "Organisation Militaire", tags: ["Planification", "Gestion du temps"],
-    html: "<strong>Mentalité :</strong><br>La discipline remplace la motivation. Chaque semaine, mon emploi du temps est tracé : heures d'apprentissage technique, sport, développement personnel et devoirs. Rien n'est laissé au hasard.",
+    title: "Organisation & Priorisation", tags: ["Planification", "Gestion du temps"],
+    html: "<strong>Mentalité :</strong><br>Je planifie mes objectifs techniques, répartis les étapes et respecte les échéances importantes. La régularité me permet de progresser.",
     projects: []
   },
   rigueur: {
@@ -463,7 +466,7 @@ const skillsDetails = {
   },
   curiosite: {
     title: "Curiosité & Veille", tags: ["HackTheBox", "Auto-formation"],
-    html: "<strong>Mentalité :</strong><br>La technologie évolue vite, les failles encore plus. Ma formation ne s'arrête pas à la porte de l'IUT : je ponce régulièrement les machines de Hack The Box et j'ingère des articles pour rester affûté.",
+    html: "<strong>Mentalité :</strong><br>La technologie évolue vite, les failles encore plus. Ma formation ne s'arrête pas à la porte de l'IUT : je pratique sur des plateformes d'entraînement et consulte de la documentation technique pour approfondir mes connaissances.",
     projects: []
   },
   equipe: {
@@ -534,10 +537,11 @@ document.querySelectorAll(".skill-card").forEach(card => {
 
 // FILTRES
 const filterButtons = document.querySelectorAll(".skill-filter-btn");
+filterButtons.forEach(b => b.setAttribute("aria-pressed", String(b.classList.contains("active"))));
 filterButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     const filter = btn.dataset.filter;
-    filterButtons.forEach(b => b.classList.remove("active")); btn.classList.add("active");
+    filterButtons.forEach(b => { b.classList.remove("active"); b.setAttribute("aria-pressed","false"); }); btn.classList.add("active"); btn.setAttribute("aria-pressed","true");
     document.querySelectorAll(".skill-card").forEach(card => {
       const cat = (card.dataset.category || "").split(" ");
       const visible = filter === "all" || cat.includes(filter) || (filter === "soft" && card.classList.contains('soft-card'));
@@ -547,5 +551,7 @@ filterButtons.forEach(btn => {
 });
 </script>
 
+
+<footer class="portfolio-footer"><div class="portfolio-footer-inner"><div><strong>BADAOUI<span style="color:#c4a02e">.</span></strong><p>Portfolio technique · Réseaux, systèmes & cybersécurité</p></div><nav aria-label="Liens de pied de page"><a href="index.html">Accueil</a><a href="projets.html">Mes projets</a><a href="contact.html">Contact</a><a href="https://github.com/WaridoSann" target="_blank" rel="noopener noreferrer">GitHub</a></nav></div></footer>
 </body>
 </html>

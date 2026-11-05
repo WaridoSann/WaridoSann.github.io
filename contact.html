@@ -534,6 +534,9 @@ textarea {
   }
 }
   </style>
+    <meta name="description" content="Contacter Walid Badaoui pour échanger autour des réseaux, de la cybersécurité, du développement et de projets techniques.">
+    <meta name="theme-color" content="#fffdf8">
+    <link rel="stylesheet" href="polish.css">
 </head>
 
 <body>
@@ -544,29 +547,27 @@ textarea {
 </div>
 
 <header>
-  <div class="logo">BADAOUI<span>.</span></div>
+  <a class="logo" href="index.html" aria-label="Retour à l’accueil">BADAOUI<span>.</span></a>
 
   <nav class="main-nav" aria-label="Menu principal">
     <a href="index.html">Accueil</a>
     <a href="apropos.html">À Propos</a>
     <a href="competences.html">Compétences</a>
     <a href="projets.html">Projets</a>
-    <a href="contact.html" class="active-nav">Contact</a>
+    <a href="contact.html" class="active-nav" aria-current="page">Contact</a>
   </nav>
 
-  <div class="socials" aria-hidden="true">
-    <a href="https://github.com/WaridoSann" aria-label="GitHub" target="_blank">
+  <div class="socials" aria-label="Réseaux sociaux">
+    <a href="https://github.com/WaridoSann" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
     </a>
-    <span title="Lien LinkedIn à renseigner">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-    </span>
+    
   </div>
 </header>
 
 <main>
   <section class="contact-hero">
-    <div class="hero-badge">Disponible</div>
+    <div class="hero-badge">Échangeons</div>
     <h1><span class="highlight">Entrer en</span> contact</h1>
     <p>
       Alternance, projets réseau / cyber, CTF ou simple prise de contact : tout commence ici.
@@ -594,9 +595,9 @@ textarea {
           </div>
 
           <div class="direct-item">
-            <span class="direct-label">LinkedIn</span>
-            <span class="direct-value">Profil LinkedIn à renseigner</span>
-            <p class="direct-note">Pour les opportunités pro et l’alternance.</p>
+            <span class="direct-label">GitHub</span>
+            <a href="https://github.com/WaridoSann" class="direct-value" target="_blank" rel="noopener noreferrer">github.com/WaridoSann</a>
+            <p class="direct-note">Code et projets publics.</p>
           </div>
         </div>
       </article>
@@ -605,7 +606,7 @@ textarea {
         <h2>Pourquoi me contacter ?</h2>
         <ul class="reason-list" aria-label="Raisons de contact">
           <li>
-            <span class="reason-tag">🎯 Alternance / stage</span>
+            <span class="reason-tag">🎯 Projets professionnels</span>
             <p>Projets orientés réseaux, cybersécurité, pentest, automatisation.</p>
           </li>
           <li>
@@ -642,7 +643,7 @@ textarea {
           <div class="form-row">
             <div class="form-group">
               <label for="subject">Sujet</label>
-              <input id="subject" name="Sujet" type="text" placeholder="Proposition d'alternance..." required>
+              <input id="subject" name="Sujet" type="text" placeholder="Proposition de collaboration..." required>
             </div>
           </div>
 
@@ -656,7 +657,7 @@ textarea {
           <div class="form-footer">
             <button type="submit" class="btn-primary">Envoyer le message</button>
             <p class="form-note">
-              Ce formulaire ouvrira votre client de messagerie par défaut.
+              Après validation, votre application de messagerie s'ouvrira avec un message prérempli. Aucun envoi n'est effectué directement depuis le site.
             </p>
           </div>
         </form>
@@ -667,7 +668,7 @@ textarea {
   <section class="social-section" aria-label="Réseaux et plateformes">
     <h2>Mes profils techniques</h2>
     <p class="social-lead">
-      C'est ici que je passe le plus clair de mon temps à m'entraîner, coder et partager.
+      Retrouvez ici mes projets publics et les plateformes sur lesquelles je partage mes activités techniques.
     </p>
 
     <div class="social-grid">
@@ -681,19 +682,7 @@ textarea {
           </div>
         </div>
         <p>Hébergement de mes projets de développement, scripts d'automatisation et outils cyber.</p>
-        <a href="https://github.com/WaridoSann" target="_blank" class="social-link">Ouvrir le profil</a>
-      </article>
-
-      <article class="social-card">
-        <div class="social-header">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hackthebox.svg" alt="Hack The Box">
-          <div>
-            <h3>Hack The Box</h3>
-            <span class="social-handle">@WaridoSan</span>
-          </div>
-        </div>
-        <p>Entraînement intensif sur des machines vulnérables, de l'énumération à l'escalade de privilèges.</p>
-        <span class="social-link">Profil à renseigner</span>
+        <a href="https://github.com/WaridoSann" target="_blank" class="social-link" rel="noopener noreferrer">Ouvrir le profil</a>
       </article>
 
       <article class="social-card">
@@ -705,7 +694,7 @@ textarea {
           </div>
         </div>
         <p>Résolution de challenges spécifiques (Web, Réseau, Forensic) pour affiner mes techniques.</p>
-        <a href="https://www.root-me.org/wyyyz" target="_blank" class="social-link">Ouvrir le profil</a>
+        <a href="https://www.root-me.org/wyyyz" target="_blank" class="social-link" rel="noopener noreferrer">Ouvrir le profil</a>
       </article>
 
       <article class="social-card">
@@ -717,7 +706,7 @@ textarea {
           </div>
         </div>
         <p>Partage de sessions d'entraînement CTF, développement en direct et discussions tech.</p>
-        <a href="https://www.twitch.tv/waridosann" target="_blank" class="social-link">Voir la chaîne</a>
+        <a href="https://www.twitch.tv/waridosann" target="_blank" class="social-link" rel="noopener noreferrer">Voir la chaîne</a>
       </article>
       <article class="social-card">
         <div class="social-header">
@@ -727,11 +716,27 @@ textarea {
             <span class="social-handle">@mwchiky</span>
           </div>
         </div>
-        <p>Moments d'échanges et discussion à propos de sujets techs.</p>
+        <p>Échanges autour de projets et de sujets techniques.</p>
       </article>
     </div>
   </section>
 </main>
 
+
+<script>
+/* GitHub Pages est statique : le formulaire prépare un courriel, sans prétendre l'envoyer. */
+document.querySelector('.contact-form')?.addEventListener('submit',function(event){
+  event.preventDefault();
+  if(!this.reportValidity())return;
+  const nom=this.querySelector('#name').value.trim();
+  const email=this.querySelector('#email').value.trim();
+  const sujet=this.querySelector('#subject').value.trim();
+  const message=this.querySelector('#message').value.trim();
+  const corps='Nom : '+nom+'\nE-mail : '+email+'\n\n'+message;
+  window.location.href='mailto:walid.badaoui@etu.unice.fr?subject='+encodeURIComponent(sujet)+'&body='+encodeURIComponent(corps);
+});
+</script>
+
+<footer class="portfolio-footer"><div class="portfolio-footer-inner"><div><strong>BADAOUI<span style="color:#c4a02e">.</span></strong><p>Portfolio technique · Réseaux, systèmes & cybersécurité</p></div><nav aria-label="Liens de pied de page"><a href="index.html">Accueil</a><a href="projets.html">Mes projets</a><a href="contact.html">Contact</a><a href="https://github.com/WaridoSann" target="_blank" rel="noopener noreferrer">GitHub</a></nav></div></footer>
 </body>
 </html>
