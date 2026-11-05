@@ -1782,3 +1782,82 @@ header a.logo{text-decoration:none!important;color:#353638!important;display:inl
 header a.logo:hover{color:#796122!important}
 
 }
+
+
+/* ===================================================
+   One-page design system — overrides after legacy CSS
+   =================================================== */
+:root{color-scheme:light;--ink:#343331;--muted:#67635b;--gold:#dfb92c;--cream:#fdfbf5;--line:#e8e3d7;--max:1160px}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--cream);font-family:Roboto,Arial,sans-serif;color:var(--ink);line-height:1.55;margin:0;min-height:100vh;overflow-x:hidden}
+a{color:inherit}
+a:focus-visible,button:focus-visible,[role=button]:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #a57e0e!important;outline-offset:3px}
+.skip-link{position:fixed;z-index:100000;top:-90px;left:15px;padding:12px 18px;background:#25221c;color:#fff;border-radius:10px;font-weight:700;transition:top .2s}
+.skip-link:focus{top:12px}
+.ambient-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:#fffdf8}
+.ambient-glow span{position:absolute;display:block;border-radius:50%;filter:blur(100px)}
+.ambient-glow span:first-child{width:45vw;height:45vw;background:rgba(246,215,95,.18);top:6%;left:-15%}
+.ambient-glow span:last-child{width:50vw;height:50vw;background:rgba(235,203,60,.10);bottom:0;right:-20%}
+.site-header{position:sticky;top:0;z-index:1000;width:100%;background:rgba(255,253,248,.93);border-bottom:1px solid rgba(222,210,176,.65);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.site-header-inner{display:flex;max-width:1280px;margin:auto;padding:15px clamp(18px,4vw,42px);gap:24px;align-items:center;justify-content:space-between}
+.brand,.footer-brand{text-decoration:none;font:900 1.55rem Montserrat,sans-serif;letter-spacing:-.06em;color:#292929;white-space:nowrap}
+.brand span,.footer-brand span{color:var(--gold)}
+.site-nav{display:flex;align-items:center;gap:5px;flex-wrap:wrap;justify-content:center}
+.site-nav a{padding:11px 13px;border-radius:9px;text-decoration:none;font:700 .82rem Montserrat,sans-serif;color:#676056;transition:background .15s,color .15s;white-space:nowrap}
+.site-nav a:hover{color:#302820;background:#f7f1dd}
+.site-nav a.active{color:#40320c;background:#f2e4ab}
+.header-cta{background:#292826;border:1px solid #292826;color:#fff;padding:11px 15px;border-radius:10px;font:700 .78rem Montserrat,sans-serif;text-decoration:none;white-space:nowrap;transition:transform .2s,background .2s}
+.header-cta:hover{background:#59503b;transform:translateY(-2px)}
+.header-cta span{margin-left:6px;color:#f1d466}
+.menu-toggle{display:none;border:1px solid #e8dfc7;border-radius:10px;padding:10px;background:#fff;cursor:pointer;width:43px;height:43px;flex-direction:column;gap:5px;justify-content:center;align-items:center}
+.menu-toggle span{height:2px;width:20px;border-radius:4px;background:#413b30}
+#main-content{display:block;max-width:none;padding:0;margin:0;isolation:isolate}
+.onepage-section{position:relative;display:block;width:100%;padding:clamp(55px,8vw,108px) clamp(18px,4vw,48px);scroll-margin-top:100px;min-width:0}
+.onepage-section--accueil{padding-top:clamp(20px,4vw,48px);padding-bottom:55px}
+.onepage-section:nth-of-type(even){background:rgba(255,255,255,.74);border-top:1px solid rgba(231,224,205,.7);border-bottom:1px solid rgba(231,224,205,.7)}
+.section-shell{position:relative;max-width:var(--max);margin:0 auto;min-width:0}
+.section-kicker{display:flex;align-items:center;gap:12px;margin-bottom:20px;font:800 .77rem Montserrat,sans-serif;color:#99802a;text-transform:uppercase;letter-spacing:.1em}
+.kicker-line{display:inline-block;width:25px;height:3px;background:#e5c44d;border-radius:9px}
+.onepage-section .page-title,.onepage-section .skills-hero h2,.onepage-section .projets-header h2,.onepage-section .contact-hero h2{font:900 clamp(2rem,4vw,3rem) Montserrat,sans-serif;letter-spacing:-.05em;color:#3f3c36;line-height:1.18}
+.onepage-section .page-title{text-align:left!important;margin:0 0 28px!important}
+.onepage-section .page-title span,.onepage-section .skills-hero h2 span,.onepage-section .projets-header h2 .highlight,.onepage-section .contact-hero h2 .highlight{color:#b79320}
+.onepage-section--apropos .section-shell{max-width:930px}
+.onepage-section--apropos .editorial-text{line-height:1.9!important;color:#585751;font-size:1.04rem!important}
+.onepage-section--apropos .highlight-quote{margin:34px 0;padding:20px 25px;background:rgba(246,230,169,.24);border-radius:0 15px 15px 0;font-size:1.1rem}
+.onepage-section--apropos .timeline{margin-bottom:45px}
+.onepage-section--apropos .skills-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.onepage-section--apropos .skill-box{background:#fff;border:1px solid var(--line);box-shadow:0 8px 25px rgba(31,29,22,.05)}
+.onepage-section--accueil .hero{padding:0!important;min-height:clamp(450px,65vh,670px)!important;align-items:center;display:flex;gap:clamp(32px,5vw,78px);margin:0 auto 20px}
+.onepage-section--accueil .intro{margin-left:0!important;flex:1 1 auto}
+.onepage-section--accueil .hero h1{font-size:clamp(2.7rem,5vw,4.3rem)!important}
+.onepage-section--accueil .hero .desc{max-width:610px;line-height:1.85;font-size:1.04rem}
+.onepage-section--accueil .hero .photo-hero{flex:0 1 340px}
+.onepage-section--accueil .hero .photo-hero img{width:min(32vw,340px);height:min(35vw,390px);object-fit:cover}
+.onepage-section--accueil .portfolio-home-highlights{margin-top:35px;padding:0!important;margin-bottom:20px}
+.onepage-section--accueil .portfolio-home-highlights h2{font-size:clamp(1.4rem,2.5vw,2rem)}
+.onepage-section--accueil .portfolio-highlight-grid{gap:16px}
+.onepage-section--competences .skills-hero,.onepage-section--projets .projets-header,.onepage-section--contact .contact-hero{margin:0 auto 20px!important;padding:0 10px 8px!important}
+.onepage-section--competences .skills-section{max-width:100%}
+.onepage-section--competences .skills-grid,.onepage-section--projets .projects-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;max-width:100%!important;gap:20px!important;margin:0 auto 40px!important;padding:0!important}
+.onepage-section--competences .skill-card,.onepage-section--projets .project-card{min-width:0;border-radius:17px;box-shadow:0 11px 35px rgba(39,35,26,.065)!important;border-color:#e7e1d2!important}
+.onepage-section--competences .skill-card{opacity:1}
+.onepage-section--projets .project-card{min-height:0}
+.onepage-section--projets .project-image{height:180px}
+.onepage-section--projets .project-mini{line-height:1.7}
+.onepage-section--projets .project-card:focus-visible,.onepage-section--competences .skill-card:focus-visible{outline:3px solid var(--gold)}
+.onepage-section--competences .modal-box,.onepage-section--projets .modal-box{z-index:9999}
+.onepage-section--projets .modal-overlay,.onepage-section--competences .modal-overlay{z-index:9998}
+.onepage-section--contact .contact-main{max-width:100%;margin-top:22px!important;padding:0!important;gap:22px!important}
+.onepage-section--contact .social-section{max-width:100%}
+.onepage-section--contact .social-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.site-footer{border-top:1px solid #e7e1d5;background:#fff;padding:36px 24px}
+.site-footer-inner{max-width:1160px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.site-footer p{margin:9px 0 0;font-size:.85rem;color:#827c6f}
+.site-footer nav{display:flex;gap:22px;flex-wrap:wrap}
+.site-footer nav a{font:700 .82rem Montserrat,sans-serif;color:#514d43;text-decoration:none}
+.site-footer nav a:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:1040px){.onepage-section--competences .skills-grid,.onepage-section--projets .projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.onepage-section--accueil .hero{min-height:0!important}.site-header-inner{gap:12px}.site-nav a{padding:9px 8px;font-size:.75rem}.header-cta{font-size:.7rem}}
+@media(max-width:780px){html{scroll-padding-top:75px}.site-header-inner{padding:13px 18px;position:relative}.brand{font-size:1.4rem}.menu-toggle{display:flex;margin-left:auto}.header-cta{display:none}.site-nav{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;z-index:101;background:rgba(255,253,248,.98);border-bottom:1px solid #e7dfcb;padding:12px 16px 18px;box-shadow:0 12px 26px rgba(30,28,20,.09)}.site-nav.is-open{display:flex;flex-direction:column;align-items:stretch}.site-nav a{display:block;padding:13px 16px;font-size:.87rem}.onepage-section{scroll-margin-top:75px;padding:60px 18px}.onepage-section--accueil{padding-top:25px;padding-bottom:48px}.onepage-section--accueil .hero{flex-direction:column-reverse!important;gap:16px!important}.onepage-section--accueil .hero .photo-hero{flex:0 0 auto!important;margin:0 auto!important}.onepage-section--accueil .hero .photo-hero img{width:155px!important;height:175px!important}.onepage-section--accueil .hero .intro{text-align:left!important;align-items:flex-start!important;width:100%;margin:0!important}.onepage-section--accueil .hero h1{font-size:2.4rem!important}.onepage-section--accueil .hero .desc{font-size:.97rem}.onepage-section--accueil .hero .cta{width:100%}.onepage-section--accueil .hero .btn{flex:1 1 100%;text-align:center}.onepage-section--accueil .portfolio-highlight-grid{grid-template-columns:1fr}.onepage-section--apropos .skills-grid{grid-template-columns:1fr}.onepage-section--competences .skills-grid,.onepage-section--projets .projects-grid{grid-template-columns:1fr!important}.onepage-section--contact .contact-main{grid-template-columns:1fr!important}.onepage-section--contact .social-grid{grid-template-columns:1fr}.site-footer-inner{align-items:flex-start;flex-direction:column}}
+@media(max-width:400px){.onepage-section{padding-left:14px;padding-right:14px}.onepage-section--accueil .hero h1{font-size:2.1rem!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
