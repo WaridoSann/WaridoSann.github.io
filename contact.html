@@ -547,7 +547,7 @@ textarea {
 </div>
 
 <header>
-  <div class="logo">BADAOUI<span>.</span></div>
+  <a class="logo" href="index.html" aria-label="Retour à l’accueil">BADAOUI<span>.</span></a>
 
   <nav class="main-nav" aria-label="Menu principal">
     <a href="index.html">Accueil</a>
@@ -595,9 +595,9 @@ textarea {
           </div>
 
           <div class="direct-item">
-            <span class="direct-label">LinkedIn</span>
-            <span class="direct-value">Profil LinkedIn à renseigner</span>
-            <p class="direct-note">Pour les opportunités pro et l’alternance.</p>
+            <span class="direct-label">GitHub</span>
+            <a href="https://github.com/WaridoSann" class="direct-value" target="_blank" rel="noopener noreferrer">github.com/WaridoSann</a>
+            <p class="direct-note">Code et projets publics.</p>
           </div>
         </div>
       </article>
@@ -606,7 +606,7 @@ textarea {
         <h2>Pourquoi me contacter ?</h2>
         <ul class="reason-list" aria-label="Raisons de contact">
           <li>
-            <span class="reason-tag">🎯 Alternance / stage</span>
+            <span class="reason-tag">🎯 Projets professionnels</span>
             <p>Projets orientés réseaux, cybersécurité, pentest, automatisation.</p>
           </li>
           <li>
@@ -732,7 +732,7 @@ document.querySelector('.contact-form')?.addEventListener('submit',function(even
   const email=this.querySelector('#email').value.trim();
   const sujet=this.querySelector('#subject').value.trim();
   const message=this.querySelector('#message').value.trim();
-  const corps='Nom : '+nom+'\\nE-mail : '+email+'\\n\\n'+message;
+  const corps='Nom : '+nom+'\nE-mail : '+email+'\n\n'+message;
   window.location.href='mailto:walid.badaoui@etu.unice.fr?subject='+encodeURIComponent(sujet)+'&body='+encodeURIComponent(corps);
 });
 </script>
