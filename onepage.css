@@ -1861,3 +1861,25 @@ a:focus-visible,button:focus-visible,[role=button]:focus-visible,input:focus-vis
 @media(max-width:780px){html{scroll-padding-top:75px}.site-header-inner{padding:13px 18px;position:relative}.brand{font-size:1.4rem}.menu-toggle{display:flex;margin-left:auto}.header-cta{display:none}.site-nav{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;z-index:101;background:rgba(255,253,248,.98);border-bottom:1px solid #e7dfcb;padding:12px 16px 18px;box-shadow:0 12px 26px rgba(30,28,20,.09)}.site-nav.is-open{display:flex;flex-direction:column;align-items:stretch}.site-nav a{display:block;padding:13px 16px;font-size:.87rem}.onepage-section{scroll-margin-top:75px;padding:60px 18px}.onepage-section--accueil{padding-top:25px;padding-bottom:48px}.onepage-section--accueil .hero{flex-direction:column-reverse!important;gap:16px!important}.onepage-section--accueil .hero .photo-hero{flex:0 0 auto!important;margin:0 auto!important}.onepage-section--accueil .hero .photo-hero img{width:155px!important;height:175px!important}.onepage-section--accueil .hero .intro{text-align:left!important;align-items:flex-start!important;width:100%;margin:0!important}.onepage-section--accueil .hero h1{font-size:2.4rem!important}.onepage-section--accueil .hero .desc{font-size:.97rem}.onepage-section--accueil .hero .cta{width:100%}.onepage-section--accueil .hero .btn{flex:1 1 100%;text-align:center}.onepage-section--accueil .portfolio-highlight-grid{grid-template-columns:1fr}.onepage-section--apropos .skills-grid{grid-template-columns:1fr}.onepage-section--competences .skills-grid,.onepage-section--projets .projects-grid{grid-template-columns:1fr!important}.onepage-section--contact .contact-main{grid-template-columns:1fr!important}.onepage-section--contact .social-grid{grid-template-columns:1fr}.site-footer-inner{align-items:flex-start;flex-direction:column}}
 @media(max-width:400px){.onepage-section{padding-left:14px;padding-right:14px}.onepage-section--accueil .hero h1{font-size:2.1rem!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+
+/* UNIFORMISATION : aucune alternance de couleur entre sections */
+html,body,#main-content,.onepage-section,.onepage-section:nth-of-type(even),.section-shell { background:transparent!important; }
+html,body{background:#fffdf8!important}
+.ambient-glow{background:#fffdf8!important}
+.onepage-section,.onepage-section:nth-of-type(even){border-top:0!important;border-bottom:0!important;box-shadow:none!important}
+.onepage-section:not(.onepage-section--accueil){padding-top:64px!important;padding-bottom:64px!important}
+.onepage-section + .onepage-section .section-shell::before{content:"";display:block;border-top:1px solid rgba(207,193,155,.28);margin:0 0 58px}
+.onepage-section--contact .contact-hero{margin-top:0!important;padding-top:0!important}
+.onepage-section--contact .contact-hero h2{margin-top:0!important}
+.onepage-section--contact .contact-main{margin-top:12px!important}
+/* Carte CV / suppression des faux exemples de formulaire */
+.cv-request-card{margin-bottom:22px!important;border:1px solid rgba(219,189,103,.55)!important;background:rgba(255,250,233,.80)!important}
+.cv-request-card h2{margin:9px 0 12px!important}
+.cv-request-card p{color:#605a4e;line-height:1.7}
+.cv-request-icon{width:44px;height:44px;display:grid;place-items:center;background:#f3e5b5;border-radius:12px;color:#66500d;font-size:23px}
+.cv-request-action{border:0;border-radius:10px;background:#39362c;color:#fff;padding:13px 19px;font:700 .88rem Montserrat,sans-serif;cursor:pointer}
+.cv-request-action:hover{background:#63562b}
+.cv-request-caption{font-size:.78rem!important;margin-top:14px!important}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:transparent!important}
+@media(max-width:780px){.onepage-section + .onepage-section .section-shell::before{margin-bottom:35px}.onepage-section:not(.onepage-section--accueil){padding-top:45px!important;padding-bottom:45px!important}}

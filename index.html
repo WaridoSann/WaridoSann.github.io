@@ -30,7 +30,7 @@
                 </p>
 
                 <nav class="cta" aria-label="Appels à l'action">
-                    <a class="btn" href="CV_BADAOUI_WALID.pdf" download>Télécharger mon CV</a>
+                    <a class="btn" href="#contact" id="request-cv-trigger">Demander mon CV ↗</a>
                     <a class="btn alt" href="#contact">Me contacter</a>
                     <a class="btn" href="#projets">Découvrir mes projets</a>
                 </nav>
@@ -473,16 +473,23 @@
 <div class="section-shell"><div class="section-kicker"><span class="kicker-line"></span>04 / Contact</div>
 
   <section class="contact-hero">
-    <div class="hero-badge">Échangeons</div>
+    
     <h2><span class="highlight">Entrer en</span> contact</h2>
     <p>
-      Alternance, projets réseau / cyber, CTF ou simple prise de contact : tout commence ici.
-      Laisse un message ou passe directement par l’un de mes profils.
+      Un projet, une collaboration ou une demande de CV ? Contactez-moi directement ou utilisez le formulaire.
     </p>
   </section>
 
   <section class="contact-main" aria-labelledby="contact-title">
     <div class="contact-left">
+<article class="contact-card cv-request-card" id="cv-request" aria-labelledby="cv-request-title">
+  <div class="cv-request-icon" aria-hidden="true">✉</div>
+  <h2 id="cv-request-title">Demander mon CV</h2>
+  <p>Mon CV n'est plus disponible en téléchargement direct. Présentez brièvement votre demande : je pourrai vous envoyer le document par e-mail après accord.</p>
+  <button type="button" class="cv-request-action" id="request-cv-contact">Préparer une demande de CV ↗</button>
+  <p class="cv-request-caption">Demande par e-mail · Aucun téléchargement automatique</p>
+</article>
+
 
       <article class="contact-card contact-direct">
         <h2 id="contact-title">Contact direct</h2>
@@ -538,25 +545,25 @@
           <div class="form-row">
             <div class="form-group">
               <label for="name">Nom & prénom</label>
-              <input id="name" name="Nom" type="text" placeholder="John Doe" required>
+              <input id="name" name="Nom" type="text" autocomplete="name" required>
             </div>
             <div class="form-group">
               <label for="email">Adresse email</label>
-              <input id="email" name="Email" type="email" placeholder="john@doe.com" required>
+              <input id="email" name="Email" type="email" autocomplete="email" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="subject">Sujet</label>
-              <input id="subject" name="Sujet" type="text" placeholder="Proposition de collaboration..." required>
+              <input id="subject" name="Sujet" type="text"  required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group full">
               <label for="message">Message</label>
-              <textarea id="message" name="Message" rows="5" placeholder="Bonjour Walid, je vous contacte car..." required></textarea>
+              <textarea id="message" name="Message" rows="5"  required></textarea>
             </div>
           </div>
 
