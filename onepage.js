@@ -232,6 +232,22 @@ Object.assign(skillsDetails, {
   }
 });
 
+/* Compétences supplémentaires : fiches descriptives */
+Object.assign(skillsDetails, {
+  adadmin: {
+    title: "Administration Active Directory",
+    tags: ["AD DS / DNS", "GPO / NTFS", "PowerShell"],
+    html: "<strong>Administration Windows Server :</strong><br>Déploiement et administration d'un domaine Active Directory, gestion des utilisateurs, groupes et unités d'organisation.<br>Configuration des services AD DS / DNS, gestion des permissions NTFS et découverte des stratégies de groupe (GPO).<br>Automatisation de tâches d'administration à l'aide de scripts PowerShell en laboratoire.",
+    projects: []
+  },
+  aiworkflow: {
+    title: "IA appliquée aux workflows techniques",
+    tags: ["Prompting", "Code assisté", "Validation"],
+    html: "<strong>Usage raisonné d'assistants IA :</strong><br>Formulation de consignes structurées pour accompagner la programmation, la documentation et les tâches d'administration.<br>Assistance à la lecture de code, au diagnostic d'erreurs et au prototypage de scripts.<br><strong>Méthode :</strong> vérification des propositions par tests, relecture du code généré et attention portée à la confidentialité des données partagées avec les outils d'IA.",
+    projects: []
+  }
+});
+
 /* GESTION MODALE & FILTRES */
 const overlay = document.getElementById("skillsModalOverlay");
 const modal = document.getElementById("skillsModal");
