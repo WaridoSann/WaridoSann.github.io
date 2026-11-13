@@ -563,7 +563,6 @@ document.querySelector('.contact-form')?.addEventListener('submit',function(even
 
 /* Demande explicite de CV : seulement un message, pas de téléchargement. */
 (()=>{
- const cvButton=document.getElementById('request-cv-contact');
  const cvNav=document.getElementById('request-cv-trigger');
  const subject=document.getElementById('subject');
  const message=document.getElementById('message');
@@ -574,6 +573,5 @@ document.querySelector('.contact-form')?.addEventListener('submit',function(even
    contact?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
    subject?.focus({preventScroll:true});
  }
- cvButton?.addEventListener('click',prepareCV);
  cvNav?.addEventListener('click',()=>setTimeout(prepareCV,60));
 })();
