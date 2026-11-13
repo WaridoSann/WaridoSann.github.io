@@ -87,6 +87,151 @@ const skillsDetails = {
   }
 };
 
+/* Fiches de compétences harmonisées et alignées sur les modules HTB explicitement terminés.
+   Le parcours CPTS est en progression : ne pas présenter les modules restants comme acquis. */
+Object.assign(skillsDetails, {
+  "python": {
+    "title": "Python",
+    "tags": [
+      "Scripting",
+      "Automatisation",
+      "POO"
+    ],
+    "html": "<strong>Développement :</strong><br>Scripts d'automatisation et manipulation de données techniques.<br>Programmation orientée objet, analyse de fichiers et outillage dans un cadre de laboratoire.",
+    "projects": []
+  },
+  "java": {
+    "title": "Java",
+    "tags": [
+      "POO",
+      "Android",
+      "Algorithmique"
+    ],
+    "html": "<strong>Développement :</strong><br>Applications orientées objet et outils de traitement.<br>Interface Android Java et échanges avec des API pour des projets pédagogiques.",
+    "projects": []
+  },
+  "php": {
+    "title": "PHP",
+    "tags": [
+      "API",
+      "PDO",
+      "Sessions"
+    ],
+    "html": "<strong>Développement serveur :</strong><br>Création d'API et traitement de formulaires côté serveur.<br>Connexion d'applications à des bases de données et gestion de requêtes HTTP.",
+    "projects": []
+  },
+  "mysql": {
+    "title": "MySQL / MariaDB",
+    "tags": [
+      "SQL",
+      "Modélisation",
+      "Requêtes"
+    ],
+    "html": "<strong>Données :</strong><br>Conception de tables relationnelles et exploitation de requêtes SQL.<br>Intégration à des applications web et systèmes d'information.",
+    "projects": []
+  },
+  "reseaux": {
+    "title": "Administration des réseaux",
+    "tags": [
+      "VLAN / OSPF",
+      "HSRP",
+      "Cisco ASA"
+    ],
+    "html": "<strong>Infrastructure :</strong><br>Segmentation VLAN, configuration de commutateurs et routeurs Cisco.<br>Routage, haute disponibilité et règles de sécurité sur des topologies d'entraînement.",
+    "projects": []
+  },
+  "linux": {
+    "title": "Administration Linux",
+    "tags": [
+      "Debian / Kali",
+      "Bash",
+      "Services"
+    ],
+    "html": "<strong>Systèmes :</strong><br>Administration de services, comptes utilisateurs et permissions.<br>Scripting Bash et utilisation d'environnements Debian et Kali.",
+    "projects": []
+  },
+  "recon": {
+    "title": "Reconnaissance & énumération",
+    "tags": [
+      "Nmap",
+      "Footprinting",
+      "OSINT"
+    ],
+    "html": "<strong>Parcours HTB Academy — modules terminés :</strong><br>Network Enumeration with Nmap.<br>Footprinting.<br>Information Gathering - Web Edition.<br>Pratique de la cartographie des services et de l'identification des points d'entrée.",
+    "projects": []
+  },
+  "webpentest": {
+    "title": "Reconnaissance des applications web",
+    "tags": [
+      "Web Recon",
+      "Énumération",
+      "HTTP"
+    ],
+    "html": "<strong>Parcours HTB Academy — module terminé :</strong><br>Information Gathering - Web Edition.<br>Collecte d'informations et identification de surfaces d'attaque web.<br>Les modules SQLi, XSS et les autres attaques web ne sont pas présentés ici comme terminés.",
+    "projects": []
+  },
+  "shells": {
+    "title": "Accès initial & exploitation",
+    "tags": [
+      "Shells",
+      "Metasploit",
+      "File Transfers"
+    ],
+    "html": "<strong>Parcours HTB Academy — modules terminés :</strong><br>Getting Started.<br>File Transfers.<br>Shells & Payloads.<br>Using the Metasploit Framework.<br>Manipulation de sessions et compréhension des mécanismes d'accès initial en laboratoire.",
+    "projects": []
+  },
+  "vulns": {
+    "title": "Analyse des vulnérabilités",
+    "tags": [
+      "Vulnerability Assessment",
+      "Analyse",
+      "Risques"
+    ],
+    "html": "<strong>Parcours HTB Academy — module terminé :</strong><br>Vulnerability Assessment.<br>Identifier et caractériser les vulnérabilités connues d'un environnement de test.<br>Distinguer découverte technique, impact et priorisation des risques.",
+    "projects": []
+  },
+  "passwords": {
+    "title": "Sécurité des authentifications",
+    "tags": [
+      "Password Attacks",
+      "Authentification",
+      "Dictionnaires"
+    ],
+    "html": "<strong>Parcours HTB Academy — module terminé :</strong><br>Password Attacks.<br>Étude des mécanismes d'authentification et des attaques par mots de passe.<br>Exercices et tests réalisés dans des environnements d'apprentissage autorisés.",
+    "projects": []
+  },
+  "services": {
+    "title": "Audit des services réseau",
+    "tags": [
+      "Common Services",
+      "Énumération",
+      "Protocoles"
+    ],
+    "html": "<strong>Parcours HTB Academy — module terminé :</strong><br>Attacking Common Services.<br>Identification des services, observation de leurs configurations et scénarios d'exploitation en laboratoire.",
+    "projects": []
+  },
+  "pivoting": {
+    "title": "Pivot réseau & tunneling",
+    "tags": [
+      "Pivoting",
+      "Tunneling",
+      "Port Forwarding"
+    ],
+    "html": "<strong>Parcours HTB Academy — module terminé :</strong><br>Pivoting, Tunneling, and Port Forwarding.<br>Compréhension des accès aux sous-réseaux isolés, des tunnels et des redirections de ports dans une infrastructure de test.",
+    "projects": []
+  },
+  "adsecurity": {
+    "title": "Sécurité Active Directory",
+    "tags": [
+      "AD Enumeration",
+      "Attack Paths",
+      "Windows"
+    ],
+    "html": "<strong>Parcours HTB Academy — module terminé :</strong><br>Active Directory Enumeration & Attacks.<br>Énumération d'environnements AD et étude des chemins d'attaque au sein d'un laboratoire Windows.",
+    "projects": []
+  }
+});
+
 /* GESTION MODALE & FILTRES */
 const overlay = document.getElementById("skillsModalOverlay");
 const modal = document.getElementById("skillsModal");
@@ -114,7 +259,7 @@ function openSkillModal(id) {
     let projectsList = data.projects.map(p => `<li><a href="${p.link}">${p.name}</a> : ${p.desc}</li>`).join("");
     htmlContent += `
       <div class="linked-projects">
-        <div class="linked-projects-title">🚀 Projets liés</div>
+        <div class="linked-projects-title">Projets liés</div>
         <ul>${projectsList}</ul>
       </div>
     `;
