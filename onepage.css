@@ -1988,3 +1988,53 @@ html,body{background:#fffdf8!important}
 .projects-preview-label p{font-size:.91rem;color:#696257;line-height:1.55;margin:10px 0}
 .projects-preview-label a{display:inline-block;font:700 .81rem Montserrat,sans-serif;color:#7a611a;text-underline-offset:3px;margin-top:2px}
 @media(max-width:760px){.projects-preview-unavailable{min-height:160px;padding:14px}.projects-preview-ghost{grid-template-columns:1fr}.projects-preview-ghost span:not(:first-child){display:none}.projects-preview-label{padding:22px 12px}}
+
+
+/* === Icônes de compétences : SVG exclusivement monochromes === */
+.onepage-section--competences .skill-icon-wrap {
+  background: #f6f6f4 !important;
+  border: 1px solid #e9e8e5 !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  flex: 0 0 48px !important;
+  width: 48px !important;
+  height: 48px !important;
+}
+.onepage-section--competences .skill-svg-icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  flex: none;
+  fill: none;
+  color: #252525;
+  stroke: #252525;
+}
+.onepage-section--competences .skill-card .skill-card-header {
+  align-items: center;
+  gap: 14px;
+}
+.onepage-section--competences .skill-title {
+  line-height: 1.38;
+  overflow-wrap: break-word;
+}
+.onepage-section--competences .skill-card .skill-short{
+  line-height: 1.65;
+}
+.onepage-section--contact .reason-svg-icon {
+  display:inline-block;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  fill: none;
+  stroke: #252525;
+  vertical-align: -4px;
+  margin-right: 6px;
+}
+.onepage-section--contact .reason-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+@media (max-width:780px){
+  .onepage-section--competences .skill-card .skill-card-header{gap:12px}
+}
